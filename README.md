@@ -1,9 +1,9 @@
-# OKX Web3 Go Wallet SDK
+# Sonr Go Wallet SDK
 
-[![Go Reference](https://pkg.go.dev/badge/git.sonr.io/pkg/wallets.svg)](https://pkg.go.dev/git.sonr.io/pkg/wallets)
-[![License](https://img.shields.io/github/license/okx/go-wallet-sdk)](https://git.sonr.io/pkg/wallets/blob/main/LICENSE)
+[![Go Reference](https://pkg.go.dev/badge/git.sonr.io/pkg/coins.svg)](https://pkg.go.dev/git.sonr.io/pkg/coins)
+[![License](https://img.shields.io/github/license/sonr/go-wallet-sdk)](https://git.sonr.io/pkg/coins/blob/main/LICENSE)
 
-The OKX Web3 Go Wallet SDK is a comprehensive solution for building wallet applications with offline transaction capabilities across multiple blockchain networks. It provides a unified interface for account management, transaction creation, and signing across various mainstream public chains.
+The Sonr Go Wallet SDK is a comprehensive solution for building wallet applications with offline transaction capabilities across multiple blockchain networks. It provides a unified interface for account management, transaction creation, and signing across various mainstream public chains.
 
 ## 🚀 Features
 
@@ -20,73 +20,79 @@ For detailed documentation and API references, please refer to the README files 
 
 Example:
 
-- [Aptos README](https://git.sonr.io/pkg/wallets/tree/main/coins/aptos)
-- [Bitcoin README](https://git.sonr.io/pkg/wallets/tree/main/coins/bitcoin)
+- [Aptos README](https://git.sonr.io/pkg/coins/tree/main/aptos)
+- [Bitcoin README](https://git.sonr.io/pkg/coins/tree/main/bitcoin)
 
 ## 🌐 Supported Chains
 
-The OKX Web3 Go Wallet SDK supports a wide range of blockchain networks. EVM-compatible chains (e.g., BSC, Polygon,
+The Sonr Go Wallet SDK supports a wide range of blockchain networks. EVM-compatible chains (e.g., BSC, Polygon,
 Arbitrum) and Solana-based chains can seamlessly reuse the same code structure for streamlined integration.
 
 | Blockchain | Generate Address | Sign Transaction | Sign Message |
-|------------|------------------|------------------|--------------|
-| Aptos      | ✅                | ✅                | ✅            |
-| Bitcoin    | ✅                | ✅                | ✅            |
-| Cardano    | ✅                | ✅                | ✅            |
-| Cosmos     | ✅                | ✅                | ✅            |
-| Ethereum   | ✅                | ✅                | ✅            |
-| Kaspa      | ✅                | ✅                | ✅            |
-| Near       | ✅                | ✅                | ✅            |
-| Solana     | ✅                | ✅                | ✅            |
-| Starknet   | ✅                | ✅                | ✅            |
-| Stacks     | ✅                | ✅                | ✅            |
-| Sui        | ✅                | ✅                | ✅            |
-| Ton        | ✅                | ✅                | ✅            |
-| Tron       | ✅                | ✅                | ✅            |
+| ---------- | ---------------- | ---------------- | ------------ |
+| Aptos      | ✅               | ✅               | ✅           |
+| Bitcoin    | ✅               | ✅               | ✅           |
+| Cardano    | ✅               | ✅               | ✅           |
+| Cosmos     | ✅               | ✅               | ✅           |
+| Ethereum   | ✅               | ✅               | ✅           |
+| Kaspa      | ✅               | ✅               | ✅           |
+| Near       | ✅               | ✅               | ✅           |
+| Solana     | ✅               | ✅               | ✅           |
+| Starknet   | ✅               | ✅               | ✅           |
+| Stacks     | ✅               | ✅               | ✅           |
+| Sui        | ✅               | ✅               | ✅           |
+| Ton        | ✅               | ✅               | ✅           |
+| Tron       | ✅               | ✅               | ✅           |
 
-
-*Note: Bitcoin support includes BRC20, Atomicals, and Runes-related functions, such as deployment, minting, transfer, and trading.*
+_Note: Bitcoin support includes BRC20, Atomicals, and Runes-related functions, such as deployment, minting, transfer, and trading._
 
 ## 🛠️ Architecture
 
-The Go Wallet SDK follows a modular architecture, comprising the following core components:
+The Sonr Go Wallet SDK follows a modular architecture, comprising the following core components:
 
-1. **`coins`**: Implements transaction creation and signing for each blockchain.
-2. **`crypto`**: Manages general cryptographic operations and signature algorithms.
-3. **`util`**: Provides helper utilities for common operations.
+1. **`git.sonr.io/pkg/coins`**: Implements transaction creation and signing for each blockchain.
+2. **`git.sonr.io/pkg/crypto`**: Manages general cryptographic operations and signature algorithms.
+3. **`git.sonr.io/pkg/crypto/util`**: Provides helper utilities for common operations.
 
 This structure allows for easy integration and extension of new blockchains.
 
 ## 📦 Installation
 
-To install the OKX Web3 Go Wallet SDK, ensure you have Go 1.22+ installed, such as run:
+To install the Sonr Go Wallet SDK, ensure you have Go 1.22+ installed, then run:
 
 ```shell
-# Install SDK
+# Set up Go environment for private repositories
+export GOPRIVATE=git.sonr.io
+export GONOPROXY=git.sonr.io
+export GONOSUMDB=git.sonr.io
+
+# Install SDK components
 go get -u git.sonr.io/pkg/coins/bitcoin
+go get -u git.sonr.io/pkg/crypto
 ```
 
 ## ⚙️ Build and Test
 
-To build and test all blockchain modules, use the `build.sh` script located in the project root. This script iterates through each chain module under the `coins` directory, runs `go mod tidy` to clean dependencies, executes tests, and verifies successful builds.
+To build and test all blockchain modules, use the provided Makefile:
 
 ```shell
-sh build.sh
+# Build and test all coins
+make
+
+# Build and test a specific coin
+make bitcoin
 ```
 
 The output will display the build status for each chain. If a module fails, the error message will indicate the issue for further debugging.
 
-
-
 ## 💬 Feedback and Support
 
-The OKX Web3 Go Wallet SDK shares common design principles and usage patterns with the JS SDK. While each blockchain's specific usage can be found in the corresponding `coins` directory README, users can refer to the [JS SDK demo](https://okx.github.io/wallet-sdk-demo/) and [documentation](https://okx.github.io/js-wallet-sdk/) for additional guidance. If you encounter any issues or have suggestions, please submit them through [GitHub Issues](https://git.sonr.io/pkg/wallets/issues), and we will address them promptly.
-
-## 🔒 Security
-
-If you find security risks, it is recommended to feedback through the following channels and get your reward!
-Submit on HackerOne platform: [https://hackerone.com/okg](https://hackerone.com/okg) or on our OKX feedback submission page: [https://www.okx.com/feedback/submit](https://www.okx.com/feedback/submit).
+The Sonr Go Wallet SDK is based on the OKX Web3 Go Wallet SDK with enhanced features and optimizations. Each blockchain's specific usage can be found in the corresponding README within the `coins` directory. If you encounter any issues or have suggestions, please submit them through [GitLab Issues](https://git.sonr.io/pkg/coins/issues), and we will address them promptly.
 
 ## 📜 License
 
-The OKX Web3 Go Wallet SDK is open-source software licensed under the [MIT license](LICENSE).
+The Sonr Go Wallet SDK is open-source software licensed under the [MIT license](LICENSE).
+
+---
+
+This README has been updated to reflect the repository reorganization, with crypto operations moved to git.sonr.io/pkg/crypto and the main wallet functionality in git.sonr.io/pkg/coins.
