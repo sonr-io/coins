@@ -1,0 +1,7 @@
+git.sonr.io/pkg/crypto v0.0.1 h1:aifor4VKmviharCaEe2nS0MlKKFaeEhDnS1HLJWoA+0=
+git.sonr.io/pkg/crypto v0.0.1/go.mod h1:4ktvmDDAOAE6m+Y0QYkixArvDO/pCIMlKteQn4xkJt0=
+github.com/btcsuite/btcd v0.22.3 h1:kYNaWFvOw6xvqP0vR20RP1Zq1DVMBxEO8QN5d1/EfNg=
+github.com/btcsuite/btcd/btcec/v2 v2.3.4 h1:3EJjcN70HCu/mwqlUsGK8GcNVyLVxFDlWurTXGPFfiQ=
+github.com/btcsuite/btcd/btcec/v2 v2.3.4/go.mod h1:zYzJ8etWJQIv1Ogk7OzpWjowwOdXY1W/17j2MW85J04=
+github.com/decred/dcrd/dcrec/secp256k1/v4 v4.4.0 h1:NMZiJj8QnKe1LgsbDayM4UoHwbvwDRwnI3hwNaAHRnc=
+github.com/decred/dcrd/dcrec/secp256k1/v4 v4.4.0/go.mod h1:ZXNYxsqcloTdSy/rNShjYzMhyjf0LaoftYK0p+A3h40=

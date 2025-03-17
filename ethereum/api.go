@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"math/big"
 
-	"git.sonr.io/pkg/crypto/ethereum/token"
+	"git.sonr.io/pkg/coins/ethereum/token"
 	"git.sonr.io/pkg/crypto/util"
 	"github.com/btcsuite/btcd/btcec/v2"
 	"github.com/ethereum/go-ethereum/common"
