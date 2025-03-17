@@ -28,21 +28,19 @@ Example:
 The Sonr Go Wallet SDK supports a wide range of blockchain networks. EVM-compatible chains (e.g., BSC, Polygon,
 Arbitrum) and Solana-based chains can seamlessly reuse the same code structure for streamlined integration.
 
-| Blockchain | Generate Address | Sign Transaction | Sign Message |
-| ---------- | ---------------- | ---------------- | ------------ |
-| Aptos      | ✅               | ✅               | ✅           |
-| Bitcoin    | ✅               | ✅               | ✅           |
-| Cardano    | ✅               | ✅               | ✅           |
-| Cosmos     | ✅               | ✅               | ✅           |
-| Ethereum   | ✅               | ✅               | ✅           |
-| Kaspa      | ✅               | ✅               | ✅           |
-| Near       | ✅               | ✅               | ✅           |
-| Solana     | ✅               | ✅               | ✅           |
-| Starknet   | ✅               | ✅               | ✅           |
-| Stacks     | ✅               | ✅               | ✅           |
-| Sui        | ✅               | ✅               | ✅           |
-| Ton        | ✅               | ✅               | ✅           |
-| Tron       | ✅               | ✅               | ✅           |
+| Blockchain                       | Generate Address | Sign Transaction | Sign Message |
+| -------------------------------- | ---------------- | ---------------- | ------------ |
+| [Aptos](./aptos/README.md)       | ✅               | ✅               | ✅           |
+| [Avax](./avax/README.md)         | ✅               | ✅               | ✅           |
+| [Bitcoin](./bitcoin/README.md)   | ✅               | ✅               | ✅           |
+| [Cosmos](./cosmos/README.md)     | ✅               | ✅               | ✅           |
+| [Ethereum](./ethereum/README.md) | ✅               | ✅               | ✅           |
+| [Filecoin](./filecoin/README.md) | ✅               | ✅               | ✅           |
+| [Helium](./helium/README.md)     | ✅               | ✅               | ✅           |
+| [Polkadot](./polkadot/README.md) | ✅               | ✅               | ✅           |
+| [Solana](./solana/README.md)     | ✅               | ✅               | ✅           |
+| [Sui](./sui/README.md)           | ✅               | ✅               | ✅           |
+| [Tezos](./tezos/README.md)       | ✅               | ✅               | ✅           |
 
 _Note: Bitcoin support includes BRC20, Atomicals, and Runes-related functions, such as deployment, minting, transfer, and trading._
 
