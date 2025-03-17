@@ -1,5 +1,5 @@
-git.sonr.io/pkg/crypto v0.0.1 h1:aifor4VKmviharCaEe2nS0MlKKFaeEhDnS1HLJWoA+0=
-git.sonr.io/pkg/crypto v0.0.1/go.mod h1:4ktvmDDAOAE6m+Y0QYkixArvDO/pCIMlKteQn4xkJt0=
+git.sonr.io/pkg/crypto v0.0.2 h1:aifor4VKmviharCaEe2nS0MlKKFaeEhDnS1HLJWoA+0=
+git.sonr.io/pkg/crypto v0.0.2/go.mod h1:4ktvmDDAOAE6m+Y0QYkixArvDO/pCIMlKteQn4xkJt0=
 github.com/aead/siphash v1.0.1/go.mod h1:Nywa3cDsYNNK3gaciGTWPwHt0wlpNV15vwmswBAUSII=
 github.com/btcsuite/btcd v0.20.1-beta/go.mod h1:wVuoA8VJLEcwgqHBwHmzLRazpKxTv13Px/pDuV7OomQ=
 github.com/btcsuite/btcd v0.22.0-beta.0.20220111032746-97732e52810c/go.mod h1:tjmYdS6MLJ5/s0Fj4DbLgSbDHbEqLJrtnHecBFkdz5M=

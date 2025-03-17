@@ -3,7 +3,7 @@ module git.sonr.io/pkg/coins/sui
 go 1.24.1
 
 require (
-	git.sonr.io/pkg/crypto v0.0.1
+	git.sonr.io/pkg/crypto v0.0.2
 	github.com/dchest/blake2b v1.0.0
 	github.com/stretchr/testify v1.10.0
 )

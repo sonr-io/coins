@@ -1,5 +1,5 @@
-git.sonr.io/pkg/crypto v0.0.1 h1:aifor4VKmviharCaEe2nS0MlKKFaeEhDnS1HLJWoA+0=
-git.sonr.io/pkg/crypto v0.0.1/go.mod h1:4ktvmDDAOAE6m+Y0QYkixArvDO/pCIMlKteQn4xkJt0=
+git.sonr.io/pkg/crypto v0.0.2 h1:aifor4VKmviharCaEe2nS0MlKKFaeEhDnS1HLJWoA+0=
+git.sonr.io/pkg/crypto v0.0.2/go.mod h1:4ktvmDDAOAE6m+Y0QYkixArvDO/pCIMlKteQn4xkJt0=
 github.com/davecgh/go-spew v1.1.2-0.20180830191138-d8f796af33cc h1:U9qPSI2PIWSS1VwoXQT9A3Wy9MM3WgvqSxFWenqJduM=
 github.com/davecgh/go-spew v1.1.2-0.20180830191138-d8f796af33cc/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/okx/go-wallet-sdk/wallet v0.0.0-20231109124131-23d8b0dd4b6f h1:MLEbgunCjaEgu2SRh2Bk16n0cqTikE7QCPSLE08Q20k=

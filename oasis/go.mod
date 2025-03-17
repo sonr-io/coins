@@ -4,7 +4,7 @@ go 1.19
 
 require (
 	github.com/btcsuite/btcd/btcutil v1.1.3
-	git.sonr.io/pkg/crypto v0.0.2-0.20231108145839-baf3654b981a
+	git.sonr.io/pkg/crypto v0.0.2
 	github.com/stretchr/testify v1.8.4
 )
 

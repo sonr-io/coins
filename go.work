@@ -1,0 +1,28 @@
+go 1.24.1
+
+use (
+	./aptos
+	./avax
+	./bitcoin
+	./cosmos
+	./elrond
+	./eos
+	./ethereum
+	./filecoin
+	./flow
+	./helium
+	./kaspa
+	./near
+	./nervos
+	./oasis
+	./polkadot
+	./solana
+	./stacks
+	./starknet
+	./sui
+	./tezos
+	./tron
+	./waves
+	./zil
+	./zksync
+)

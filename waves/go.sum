@@ -1,5 +1,5 @@
-git.sonr.io/pkg/crypto v0.0.1 h1:aifor4VKmviharCaEe2nS0MlKKFaeEhDnS1HLJWoA+0=
-git.sonr.io/pkg/crypto v0.0.1/go.mod h1:4ktvmDDAOAE6m+Y0QYkixArvDO/pCIMlKteQn4xkJt0=
+git.sonr.io/pkg/crypto v0.0.2 h1:aifor4VKmviharCaEe2nS0MlKKFaeEhDnS1HLJWoA+0=
+git.sonr.io/pkg/crypto v0.0.2/go.mod h1:4ktvmDDAOAE6m+Y0QYkixArvDO/pCIMlKteQn4xkJt0=
 github.com/aead/siphash v1.0.1/go.mod h1:Nywa3cDsYNNK3gaciGTWPwHt0wlpNV15vwmswBAUSII=
 github.com/agl/ed25519 v0.0.0-20170116200512-5312a6153412 h1:w1UutsfOrms1J05zt7ISrnJIXKzwaspym5BTKGx93EI=
 github.com/agl/ed25519 v0.0.0-20170116200512-5312a6153412/go.mod h1:WPjqKcmVOxf0XSf3YxCJs6N6AOSrOx3obionmG7T0y0=

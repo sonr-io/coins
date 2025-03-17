@@ -16,7 +16,7 @@ require (
 	github.com/ethereum/go-ethereum v1.12.2 // indirect
 	github.com/go-stack/stack v1.8.1 // indirect
 	github.com/holiman/uint256 v1.2.3 // indirect
-	git.sonr.io/pkg/crypto v0.0.1 // indirect
+	git.sonr.io/pkg/crypto v0.0.2 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	golang.org/x/crypto v0.12.0 // indirect
 	golang.org/x/sys v0.11.0 // indirect

@@ -3,7 +3,7 @@ module git.sonr.io/pkg/coins/helium
 go 1.24.1
 
 require (
-	git.sonr.io/pkg/crypto v0.0.1
+	git.sonr.io/pkg/crypto v0.0.2
 	github.com/golang/protobuf v1.5.0
 	github.com/shopspring/decimal v1.3.1
 	github.com/stretchr/testify v1.10.0

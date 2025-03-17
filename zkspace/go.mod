@@ -21,7 +21,7 @@ require (
 	github.com/holiman/uint256 v1.2.3 // indirect
 	github.com/mmcloughlin/addchain v0.4.0 // indirect
 	git.sonr.io/pkg/crypto/ethereum v0.0.2 // indirect
-	git.sonr.io/pkg/crypto v0.0.1 // indirect
+	git.sonr.io/pkg/crypto v0.0.2 // indirect
 	// indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/supranational/blst v0.3.11 // indirect

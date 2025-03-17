@@ -4,7 +4,7 @@ go 1.24.1
 
 require (
 	cosmossdk.io/math v1.1.2
-	git.sonr.io/pkg/crypto v0.0.1
+	git.sonr.io/pkg/crypto v0.0.2
 	github.com/btcsuite/btcd/btcec/v2 v2.3.4
 	github.com/btcsuite/btcd/btcutil v1.1.3
 	github.com/ethereum/go-ethereum v1.15.5
