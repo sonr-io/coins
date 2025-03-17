@@ -89,6 +89,7 @@ func ValidateAddress(address string, shortEnable bool) bool {
 	re2, _ := regexp.Compile("^[\\dA-Fa-f]{64}$")
 	return re1.Match([]byte(address)) || re2.Match([]byte(address))
 }
+
 func ValidateContractAddress(address string) bool {
 	contractReg, err := regexp.Compile("^(0[x|X])?[\\dA-Fa-f]+::.+::.+")
 	if err != nil {
@@ -103,8 +104,10 @@ func ValidateContractAddress(address string) bool {
 	}
 	return contractReg2.Match([]byte(address))
 }
+
 func MakeRawTransaction(from string, sequenceNumber uint64, maxGasAmount uint64, gasUnitPrice uint64,
-	expirationTimestampSecs uint64, chainId uint8, payload aptos_types.TransactionPayload) (*aptos_types.RawTransaction, error) {
+	expirationTimestampSecs uint64, chainId uint8, payload aptos_types.TransactionPayload,
+) (*aptos_types.RawTransaction, error) {
 	rawTxn := aptos_types.RawTransaction{}
 	// addr, err := aptos_types.FromHex(ExpandAddress(from))
 	addr, err := aptos_types.FromHex(from)
@@ -122,15 +125,18 @@ func MakeRawTransaction(from string, sequenceNumber uint64, maxGasAmount uint64,
 }
 
 func Transfer(from string, sequenceNumber uint64, maxGasAmount uint64, gasUnitPrice uint64, expirationTimestampSecs uint64, chainId uint8,
-	to string, amount uint64, seedHex string) (string, error) {
+	to string, amount uint64, seedHex string,
+) (string, error) {
 	payload, err := TransferPayload(to, amount)
 	if err != nil {
 		return "", err
 	}
 	return BuildSignedTransaction(from, sequenceNumber, maxGasAmount, gasUnitPrice, expirationTimestampSecs, chainId, payload, seedHex)
 }
+
 func TransferCoins(from string, sequenceNumber uint64, maxGasAmount uint64, gasUnitPrice uint64, expirationTimestampSecs uint64, chainId uint8,
-	to string, amount uint64, seedHex, tyArg string) (string, error) {
+	to string, amount uint64, seedHex, tyArg string,
+) (string, error) {
 	payload, err := CoinTransferPayloadV2(to, amount, tyArg)
 	if err != nil {
 		return "", err
@@ -139,8 +145,8 @@ func TransferCoins(from string, sequenceNumber uint64, maxGasAmount uint64, gasU
 }
 
 func TransferPayload(to string, amount uint64) (aptos_types.TransactionPayload, error) {
-	//moduleAddress := make([]byte, 31)
-	//moduleAddress = append(moduleAddress, 0x1)
+	// moduleAddress := make([]byte, 31)
+	// moduleAddress = append(moduleAddress, 0x1)
 	bscAddress, err := aptos_types.BcsSerializeFixedBytes(aptos_types.BytesFromHex(ExpandAddress(to)))
 	if err != nil {
 		return nil, err
@@ -159,7 +165,8 @@ func TransferPayload(to string, amount uint64) (aptos_types.TransactionPayload, 
 }
 
 func BuildSignedTransaction(from string, sequenceNumber uint64, maxGasAmount uint64, gasUnitPrice uint64, expirationTimestampSecs uint64, chainId uint8,
-	payload aptos_types.TransactionPayload, seedHex string) (string, error) {
+	payload aptos_types.TransactionPayload, seedHex string,
+) (string, error) {
 	rawTxn, err := MakeRawTransaction(from, sequenceNumber, maxGasAmount, gasUnitPrice, expirationTimestampSecs, chainId, payload)
 	if err != nil {
 		return "", err
@@ -232,6 +239,7 @@ func CoinTransferPayload(to string, amount uint64, tyArg string) (aptos_types.Tr
 	}
 	return &aptos_types.TransactionPayloadEntryFunction{Value: scriptFunction}, nil
 }
+
 func CoinTransferPayloadV2(to string, amount uint64, tyArg string) (aptos_types.TransactionPayload, error) {
 	bscAddress, err := aptos_types.BcsSerializeFixedBytes(aptos_types.BytesFromHex(ExpandAddress(to)))
 	if err != nil {
@@ -256,7 +264,7 @@ func CoinTransferPayloadV2(to string, amount uint64, tyArg string) (aptos_types.
 		},
 	}
 	tyArgs = append(tyArgs, &t1)
-	//0x1::aptos_account::transfer_coins
+	// 0x1::aptos_account::transfer_coins
 	scriptFunction := aptos_types.ScriptFunction{
 		Module:   aptos_types.ModuleId{Address: *aptos_types.CORE_CODE_ADDRESS, Name: "aptos_account"},
 		Function: "transfer_coins",
@@ -517,7 +525,7 @@ func String2U128(str string) (*serde.Uint128, error) {
 	return serde.FromBig(&ii)
 }
 
-func Interface2U64(value interface{}) (uint64, error) {
+func Interface2U64(value any) (uint64, error) {
 	switch value.(type) {
 	case string:
 		op, _ := value.(string)
@@ -530,7 +538,7 @@ func Interface2U64(value interface{}) (uint64, error) {
 	}
 }
 
-func Interface2U128(value interface{}) (*serde.Uint128, error) {
+func Interface2U128(value any) (*serde.Uint128, error) {
 	switch value.(type) {
 	case string:
 		op, _ := value.(string)
@@ -544,7 +552,7 @@ func Interface2U128(value interface{}) (*serde.Uint128, error) {
 	}
 }
 
-func ConvertArgs(args []interface{}, arg_types []aptos_types.MoveType) ([][]byte, error) {
+func ConvertArgs(args []any, arg_types []aptos_types.MoveType) ([][]byte, error) {
 	if len(args) != len(arg_types) {
 		return nil, fmt.Errorf("aptos_types and values size not match")
 	}
@@ -606,9 +614,9 @@ func ConvertArgs(args []interface{}, arg_types []aptos_types.MoveType) ([][]byte
 			}
 			array = append(array, bytes)
 		case "vector<u8>":
-			switch moveValue.(type) {
-			case []interface{}:
-				vArray, _ := moveValue.([]interface{})
+			switch moveValue := moveValue.(type) {
+			case []any:
+				vArray := moveValue
 				inputBytes := make([]byte, 0)
 				for _, e := range vArray {
 					v := fmt.Sprintf("%v", e)
@@ -624,7 +632,7 @@ func ConvertArgs(args []interface{}, arg_types []aptos_types.MoveType) ([][]byte
 				}
 				array = append(array, bytes)
 			case string:
-				op, _ := moveValue.(string)
+				op := moveValue
 				v := aptos_types.BytesFromHex(op)
 				bytes, err := aptos_types.BcsSerializeBytes(v)
 				if err != nil {
@@ -635,9 +643,9 @@ func ConvertArgs(args []interface{}, arg_types []aptos_types.MoveType) ([][]byte
 				return nil, errors.New("unknown argument for vector<u8>")
 			}
 		case "vector<u64>":
-			switch moveValue.(type) {
-			case []interface{}:
-				vArray, _ := moveValue.([]interface{})
+			switch moveValue := moveValue.(type) {
+			case []any:
+				vArray := moveValue
 				targetBytes := make([]byte, 0)
 				bytes, err := aptos_types.BcsSerializeLen(uint64(len(vArray)))
 				if err != nil {
@@ -660,9 +668,9 @@ func ConvertArgs(args []interface{}, arg_types []aptos_types.MoveType) ([][]byte
 				return nil, errors.New("unknown argument for vector<u64>")
 			}
 		case "vector<u128>":
-			switch moveValue.(type) {
-			case []interface{}:
-				vArray, _ := moveValue.([]interface{})
+			switch moveValue := moveValue.(type) {
+			case []any:
+				vArray := moveValue
 				targetBytes := make([]byte, 0)
 				bytes, err := aptos_types.BcsSerializeLen(uint64(len(vArray)))
 				if err != nil {
@@ -685,9 +693,9 @@ func ConvertArgs(args []interface{}, arg_types []aptos_types.MoveType) ([][]byte
 				return nil, errors.New("unknown argument for vector<u128>")
 			}
 		case "vector<bool>":
-			switch moveValue.(type) {
-			case []interface{}:
-				vArray, _ := moveValue.([]interface{})
+			switch moveValue := moveValue.(type) {
+			case []any:
+				vArray := moveValue
 				targetBytes := make([]byte, 0)
 				bytes, err := aptos_types.BcsSerializeLen(uint64(len(vArray)))
 				if err != nil {
@@ -712,8 +720,8 @@ func ConvertArgs(args []interface{}, arg_types []aptos_types.MoveType) ([][]byte
 			}
 		case "vector<address>":
 			switch moveValue.(type) {
-			case []interface{}:
-				vArray, _ := moveValue.([]interface{})
+			case []any:
+				vArray, _ := moveValue.([]any)
 				targetBytes := make([]byte, 0)
 				bytes, err := aptos_types.BcsSerializeLen(uint64(len(vArray)))
 				if err != nil {
@@ -738,8 +746,8 @@ func ConvertArgs(args []interface{}, arg_types []aptos_types.MoveType) ([][]byte
 			}
 		case "vector<0x1::string::String>":
 			switch moveValue.(type) {
-			case []interface{}:
-				vArray, _ := moveValue.([]interface{})
+			case []any:
+				vArray := moveValue.([]any)
 				targetBytes := make([]byte, 0)
 				bytes, err := aptos_types.BcsSerializeLen(uint64(len(vArray)))
 				if err != nil {
@@ -778,6 +786,7 @@ func ConvertArgs(args []interface{}, arg_types []aptos_types.MoveType) ([][]byte
 	}
 	return array, nil
 }
+
 func fetchABI(modules []aptos_types.MoveModuleBytecode) map[string]aptos_types.MoveFunctionFullName {
 	abiMap := map[string]aptos_types.MoveFunctionFullName{}
 	for _, module := range modules {
@@ -900,7 +909,8 @@ func PayloadFromJsonAndAbi(payload string, abi string) (aptos_types.TransactionP
 }
 
 func GetSigningHash(from string, sequenceNumber uint64, maxGasAmount uint64, gasUnitPrice uint64, expirationTimestampSecs uint64, chainId uint8,
-	to string, amount uint64) (string, error) {
+	to string, amount uint64,
+) (string, error) {
 	payload, err := TransferPayload(to, amount)
 	if err != nil {
 		return "", err
@@ -945,7 +955,8 @@ func SignedTx(rawTxn *aptos_types.RawTransaction, signDataHex string, pubKey str
 }
 
 func AddStake(from string, sequenceNumber uint64, maxGasAmount uint64, gasUnitPrice uint64, expirationTimestampSecs uint64, chainId uint8,
-	poolAddress string, amount uint64, seedHex string) (string, error) {
+	poolAddress string, amount uint64, seedHex string,
+) (string, error) {
 	payload, err := AddStakePayload(poolAddress, amount)
 	if err != nil {
 		return "", err
@@ -974,7 +985,8 @@ func AddStakePayload(poolAddress string, amount uint64) (aptos_types.Transaction
 }
 
 func Unlock(from string, sequenceNumber uint64, maxGasAmount uint64, gasUnitPrice uint64, expirationTimestampSecs uint64, chainId uint8,
-	poolAddress string, amount uint64, seedHex string) (string, error) {
+	poolAddress string, amount uint64, seedHex string,
+) (string, error) {
 	payload, err := UnlockPayload(poolAddress, amount)
 	if err != nil {
 		return "", err
@@ -1003,7 +1015,8 @@ func UnlockPayload(poolAddress string, amount uint64) (aptos_types.TransactionPa
 }
 
 func ReactivateStake(from string, sequenceNumber uint64, maxGasAmount uint64, gasUnitPrice uint64, expirationTimestampSecs uint64, chainId uint8,
-	poolAddress string, amount uint64, seedHex string) (string, error) {
+	poolAddress string, amount uint64, seedHex string,
+) (string, error) {
 	payload, err := ReactivateStakePayload(poolAddress, amount)
 	if err != nil {
 		return "", err
@@ -1032,7 +1045,8 @@ func ReactivateStakePayload(poolAddress string, amount uint64) (aptos_types.Tran
 }
 
 func Withdraw(from string, sequenceNumber uint64, maxGasAmount uint64, gasUnitPrice uint64, expirationTimestampSecs uint64, chainId uint8,
-	poolAddress string, amount uint64, seedHex string) (string, error) {
+	poolAddress string, amount uint64, seedHex string,
+) (string, error) {
 	payload, err := WithdrawPayload(poolAddress, amount)
 	if err != nil {
 		return "", err
