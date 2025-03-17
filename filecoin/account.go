@@ -124,6 +124,7 @@ func base32decode(s string) ([]byte, error) {
 	}
 	return decoded, nil
 }
+
 func AddressToBytes(addr string) []byte {
 	if len(addr) == 0 {
 		return nil
@@ -224,10 +225,7 @@ func SignTx(message *Message, privateKeyHex string) (*SignedMessage, error) {
 	}
 	privateKey, _ := btcec.PrivKeyFromBytes(privKeyBytes)
 
-	sig, err := ecdsa2.SignCompact(privateKey, message.Hash(), false)
-	if err != nil {
-		return nil, err
-	}
+	sig := ecdsa2.SignCompact(privateKey, message.Hash(), false)
 	V := sig[0]
 	R := sig[1:33]
 	S := sig[33:65]

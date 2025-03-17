@@ -8,6 +8,8 @@ require (
 )
 
 require (
+	git.sonr.io/pkg/crypto v0.0.2 // indirect
+	git.sonr.io/pkg/crypto/ethereum v0.0.2 // indirect
 	github.com/bits-and-blooms/bitset v1.11.0 // indirect
 	github.com/btcsuite/btcd/btcec/v2 v2.3.2 // indirect
 	github.com/consensys/bavard v0.1.13 // indirect
@@ -20,8 +22,6 @@ require (
 	github.com/go-stack/stack v1.8.1 // indirect
 	github.com/holiman/uint256 v1.2.3 // indirect
 	github.com/mmcloughlin/addchain v0.4.0 // indirect
-	git.sonr.io/pkg/crypto/ethereum v0.0.2 // indirect
-	git.sonr.io/pkg/crypto v0.0.2 // indirect
 	// indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/supranational/blst v0.3.11 // indirect
@@ -31,3 +31,5 @@ require (
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 	rsc.io/tmplfunc v0.0.3 // indirect
 )
+
+replace launchpad.net/gocheck => gopkg.in/check.v1 latest

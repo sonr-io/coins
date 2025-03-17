@@ -12,16 +12,11 @@ use (
 	./flow
 	./helium
 	./kaspa
-	./near
-	./nervos
-	./oasis
 	./polkadot
 	./solana
-	./stacks
 	./starknet
 	./sui
 	./tezos
-	./tron
 	./waves
 	./zil
 	./zksync

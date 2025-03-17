@@ -3,7 +3,7 @@ module git.sonr.io/pkg/coins/ethereum
 go 1.24.1
 
 require (
-	git.sonr.io/pkg/crypto v0.0.2
+	git.sonr.io/pkg/crypto v0.0.3
 	git.sonr.io/pkg/crypto/util v0.0.2
 	github.com/btcsuite/btcd/btcec/v2 v2.3.4
 	github.com/ethereum/go-ethereum v1.15.5
@@ -13,6 +13,7 @@ require (
 
 require (
 	github.com/bits-and-blooms/bitset v1.20.0 // indirect
+	github.com/btcsuite/btcd/chaincfg/chainhash v1.0.2 // indirect
 	github.com/consensys/bavard v0.1.27 // indirect
 	github.com/consensys/gnark-crypto v0.16.0 // indirect
 	github.com/crate-crypto/go-ipa v0.0.0-20240724233137-53bbb0ceb27a // indirect
@@ -23,11 +24,12 @@ require (
 	github.com/ethereum/go-verkle v0.2.2 // indirect
 	github.com/holiman/uint256 v1.3.2 // indirect
 	github.com/mmcloughlin/addchain v0.4.0 // indirect
-	github.com/okx/go-wallet-sdk/util v0.0.1 // indirect
 	github.com/pmezard/go-difflib v1.0.1-0.20181226105442-5d4384ee4fb2 // indirect
 	github.com/supranational/blst v0.3.14 // indirect
-	golang.org/x/sync v0.10.0 // indirect
+	golang.org/x/sync v0.12.0 // indirect
 	golang.org/x/sys v0.31.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 	rsc.io/tmplfunc v0.0.3 // indirect
 )
+
+replace launchpad.net/gocheck => gopkg.in/check.v1 v1.0.0-20201130134442-10cb98267c6c

@@ -12,6 +12,7 @@ all: $(COINS)
 # Pattern rule for each coin
 $(COINS):
 	@echo "Building and testing $@..."
+	@export GOVCS="launchpad.net:bzr,*:git|hg|svn|bzr"
 	@cd $(BASE_DIR)/$@ && go mod tidy && go test -v && echo "Build for $@ completed successfully.\n"
 
 # Clean target (optional)

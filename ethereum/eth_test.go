@@ -4,13 +4,14 @@ import (
 	"encoding/hex"
 	"encoding/json"
 	"errors"
-	"github.com/btcsuite/btcd/btcec/v2"
-	"github.com/stretchr/testify/assert"
-	"github.com/stretchr/testify/require"
 	"math/big"
 	"testing"
 
-	"git.sonr.io/pkg/crypto/ethereum/token"
+	"github.com/btcsuite/btcd/btcec/v2"
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
+
+	"git.sonr.io/pkg/coins/ethereum/token"
 )
 
 func TestEcRecoverPubKey(t *testing.T) {
@@ -54,7 +55,7 @@ func TestTransfer(t *testing.T) {
 	require.Equal(t, "0x1ca96f8cfe7276bb053b25e57188f1b5ec6a4728", address)
 
 	transaction := NewEthTransaction(
-		big.NewInt(int64(00)),
+		big.NewInt(int64(0o0)),
 		big.NewInt(int64(420000)),
 		big.NewInt(int64(200000000000)),
 		big.NewInt(int64(100000000000000000)),
@@ -80,7 +81,7 @@ func TestTokenTransfer(t *testing.T) {
 	prvKey, _ := btcec.PrivKeyFromBytes(p)
 	transfer, _ := token.Transfer("0x1ca96f8cfe7276bb053b25e57188f1b5ec6a4728", big.NewInt(int64(100000000000000000)))
 	transaction := NewEthTransaction(
-		big.NewInt(int64(00)),
+		big.NewInt(int64(0o0)),
 		big.NewInt(int64(420000)),
 		big.NewInt(int64(200000000000)),
 		big.NewInt(int64(0)),
@@ -113,7 +114,7 @@ func TestEth2(t *testing.T) {
 
 	chainId := big.NewInt(int64(10))
 	transaction := NewEthTransaction(
-		big.NewInt(int64(00)),
+		big.NewInt(int64(0o0)),
 		big.NewInt(int64(420000)),
 		big.NewInt(int64(200000000000)),
 		big.NewInt(int64(100000000000000000)),
