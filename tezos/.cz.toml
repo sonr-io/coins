@@ -1,0 +1,12 @@
+[tool.commitizen]
+name = "cz_conventional_commits"
+tag_format = "tezos/v$version"
+version_files = [
+    "go.mod:module git.sonr.io/pkg/coins/tezos"
+]
+version_scheme = "semver"
+version = "0.0.1"
+update_changelog_on_bump = true
+major_version_zero = true
+changelog_file = "CHANGELOG.md"
+

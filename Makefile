@@ -1,7 +1,7 @@
 # Makefile for building and testing coin modules
 
 # List of all coins
-COINS = aptos bitcoin elrond ethereum helium  polkadot sui zil zksync avax cosmos eos filecoin kaspa nervos oracle solana starknet tezos waves
+COINS = aptos avax bitcoin cosmos ethereum filecoin helium polkadot solana sui tezos
 
 # Base directory
 BASE_DIR := $(shell pwd)
