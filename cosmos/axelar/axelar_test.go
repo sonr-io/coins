@@ -21,7 +21,7 @@ func TestTransfer(t *testing.T) {
 	param.ToAddress = "axelar1rvs5xph4l3px2efynqsthus8p6r4exyr6kqvdd"
 	param.Demon = "uaxl"
 	param.Amount = "100000"
-	param.CommonParam.ChainId = "axelar-testnet-lisbon-3"
+	param.CommonParam.ChainID = "axelar-testnet-lisbon-3"
 	param.CommonParam.Sequence = 0
 	param.CommonParam.AccountNumber = 24569
 	param.CommonParam.FeeDemon = "uaxl"
@@ -38,7 +38,7 @@ func TestTransfer(t *testing.T) {
 func TestIbcTransfer(t *testing.T) {
 	privateKeyHex := "1790962db820729606cd7b255ace1ac5ebb129ac8e9b2d8534d022194ab25b37"
 	p := cosmos.IbcTransferParam{}
-	p.CommonParam.ChainId = "axelar-testnet-lisbon-3"
+	p.CommonParam.ChainID = "axelar-testnet-lisbon-3"
 	p.CommonParam.Sequence = 1
 	p.CommonParam.AccountNumber = 24569
 	p.CommonParam.FeeDemon = "uaxl"

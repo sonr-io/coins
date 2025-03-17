@@ -48,7 +48,7 @@ func TestTransfer(t *testing.T) {
 	param.ToAddress = "osmo1lyjxk4t835yj6u8l2mg6a6t2v9x3nj7ulaljz2"
 	param.Demon = "uosmo"
 	param.Amount = "100000"
-	param.CommonParam.ChainId = "osmosis-1"
+	param.CommonParam.ChainID = "osmosis-1"
 	param.CommonParam.Sequence = 0
 	param.CommonParam.AccountNumber = 584405
 	param.CommonParam.FeeDemon = "uosmo"
@@ -74,7 +74,7 @@ func TestSwap(t *testing.T) {
 	param.FromDemon = "uosmo"
 	param.FromAmount = "10000"
 	param.MinToAmount = "3854154180813018"
-	param.CommonParam.ChainId = "osmosis-1"
+	param.CommonParam.ChainID = "osmosis-1"
 	param.CommonParam.Sequence = 0
 	param.CommonParam.AccountNumber = 584406
 	param.CommonParam.FeeDemon = "uosmo"
@@ -100,7 +100,7 @@ func TestSignMessage(t *testing.T) {
 func TestIbcTransfer(t *testing.T) {
 	privateKeyHex := "1790962db820729606cd7b255ace1ac5ebb129ac8e9b2d8534d022194ab25b37"
 	p := cosmos.IbcTransferParam{}
-	p.CommonParam.ChainId = "osmosis-1"
+	p.CommonParam.ChainID = "osmosis-1"
 	p.CommonParam.Sequence = 6
 	p.CommonParam.AccountNumber = 584406
 	p.CommonParam.FeeDemon = "uosmo"

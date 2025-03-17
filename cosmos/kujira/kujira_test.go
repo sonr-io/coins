@@ -25,7 +25,7 @@ func TestTransfer(t *testing.T) {
 	param.Demon = "ukuji"
 	// 0.01 kuji
 	param.Amount = "10000"
-	param.CommonParam.ChainId = "kaiyo-1"
+	param.CommonParam.ChainID = "kaiyo-1"
 	param.CommonParam.Sequence = 0
 	param.CommonParam.AccountNumber = 23140
 	param.CommonParam.FeeDemon = "ukuji"
@@ -45,7 +45,7 @@ func TestIbcTransfer(t *testing.T) {
 	require.Nil(t, err)
 
 	p := cosmos.IbcTransferParam{}
-	p.CommonParam.ChainId = "kaiyo-1"
+	p.CommonParam.ChainID = "kaiyo-1"
 	p.CommonParam.Sequence = 1
 	p.CommonParam.AccountNumber = 23140
 	p.CommonParam.FeeDemon = "ukuji"

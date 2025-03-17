@@ -31,10 +31,7 @@ func MakeSignature(privateKeyHex string, msg authtypes.StdSignMsg) (sig authtype
 	}
 	ecPriv, ecPub := btcec.PrivKeyFromBytes(pkBytes)
 
-	result, err := ecdsa.SignCompact(ecPriv, m, false)
-	if err != nil {
-		return
-	}
+	result := ecdsa.SignCompact(ecPriv, m, false)
 
 	V := result[0]
 	R := result[1:33]
@@ -50,16 +47,17 @@ func MakeSignature(privateKeyHex string, msg authtypes.StdSignMsg) (sig authtype
 	}, nil
 }
 
-func BuildStdTx(privateKey, chainId, memo string, msgs []types.Msg, feeCoins types.Coins, gas, accNumber, seqNumber uint64) (
-	stdTx *authtypes.StdTx, err error) {
-	if len(chainId) == 0 {
+func BuildStdTx(privateKey, chainID, memo string, msgs []types.Msg, feeCoins types.Coins, gas, accNumber, seqNumber uint64) (
+	stdTx *authtypes.StdTx, err error,
+) {
+	if len(chainID) == 0 {
 		return stdTx, errors.New("failed. empty chain ID")
 	}
 
 	stdFee := authtypes.NewStdFee(gas, feeCoins)
 
 	signMsg := authtypes.StdSignMsg{
-		ChainID:       chainId,
+		ChainID:       chainID,
 		AccountNumber: accNumber,
 		Sequence:      seqNumber,
 		Memo:          memo,

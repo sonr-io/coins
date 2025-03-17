@@ -9,7 +9,6 @@ use (
 	./eos
 	./ethereum
 	./filecoin
-	./flow
 	./helium
 	./kaspa
 	./polkadot

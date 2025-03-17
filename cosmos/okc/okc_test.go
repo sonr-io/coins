@@ -67,7 +67,7 @@ func TestIbcTransfer(t *testing.T) {
 	require.Nil(t, err)
 
 	p := cosmos.IbcTransferParam{}
-	p.CommonParam.ChainId = "exchain-65"
+	p.CommonParam.ChainID = "exchain-65"
 	p.CommonParam.Sequence = 0
 	p.CommonParam.AccountNumber = 32190628
 	p.CommonParam.FeeDemon = "wei"

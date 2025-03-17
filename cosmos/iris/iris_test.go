@@ -22,7 +22,7 @@ func TestTransfer(t *testing.T) {
 	param.ToAddress = address
 	param.Demon = "uiris"
 	param.Amount = "10000"
-	param.CommonParam.ChainId = "irishub-1"
+	param.CommonParam.ChainID = "irishub-1"
 	param.CommonParam.Sequence = 0
 	param.CommonParam.AccountNumber = 46542
 	param.CommonParam.FeeDemon = "uiris"
@@ -33,13 +33,12 @@ func TestTransfer(t *testing.T) {
 	signedTx, err := cosmos.Transfer(param, privateKeyHex)
 	require.Nil(t, err)
 	assert.Equal(t, "CosBCogBChwvY29zbW9zLmJhbmsudjFiZXRhMS5Nc2dTZW5kEmgKKmlhYTE0NXEwdGNkdXI0dGN4MnlhNWNwaHF4OTZlNTR5ZmxmeTRzcnVmORIqaWFhMTQ1cTB0Y2R1cjR0Y3gyeWE1Y3BocXg5NmU1NHlmbGZ5NHNydWY5Gg4KBXVpcmlzEgUxMDAwMBJmCk4KRgofL2Nvc21vcy5jcnlwdG8uc2VjcDI1NmsxLlB1YktleRIjCiEDEFPp7wKV0zS2uyLiDMcX6xoWpUb2klcsiDC0vBTBNnYSBAoCCAESFAoOCgV1aXJpcxIFMjQwMDAQoI0GGkCxT1vLoGZ2MML6DDJEkHPqnimBiwS6ZiFMsBeUCX8G+2M1tsEAm0oeqlacNO6Pha16NI6t4O63o7M72UqIYmMU", signedTx)
-
 }
 
 func TestIbcTransfer(t *testing.T) {
 	privateKeyHex := "1790962db820729606cd7b255ace1ac5ebb129ac8e9b2d8534d022194ab25b37"
 	p := cosmos.IbcTransferParam{}
-	p.CommonParam.ChainId = "irishub-1"
+	p.CommonParam.ChainID = "irishub-1"
 	p.CommonParam.Sequence = 3
 	p.CommonParam.AccountNumber = 46542
 	p.CommonParam.FeeDemon = "uiris"

@@ -24,7 +24,7 @@ func TestGetSignedTx(t *testing.T) {
 	ret := ValidateAddress(address)
 	require.True(t, ret)
 
-	chainId := "cosmoshub-4"
+	chainID := "cosmoshub-4"
 	from := "cosmos145q0tcdur4tcx2ya5cphqx96e54yflfyqjrdt5"
 	to := "cosmos1jun53r4ycc8g2v6tffp4cmxjjhv6y7ntat62wn"
 	demon := "uatom"
@@ -34,7 +34,7 @@ func TestGetSignedTx(t *testing.T) {
 	accountNumber := 623151
 	feeAmount := big.NewInt(10)
 	gasLimit := 100
-	hexStr, err := SignStart(chainId, from, to, demon, memo, amount, 0, uint64(sequence), uint64(accountNumber), feeAmount, uint64(gasLimit), k)
+	hexStr, err := SignStart(chainID, from, to, demon, memo, amount, 0, uint64(sequence), uint64(accountNumber), feeAmount, uint64(gasLimit), k)
 	require.Nil(t, err)
 	expected = "0a97010a8e010a1c2f636f736d6f732e62616e6b2e763162657461312e4d736753656e64126e0a2d636f736d6f733134357130746364757234746378327961356370687178393665353479666c6679716a72647435122d636f736d6f73316a756e3533723479636338673276367466667034636d786a6a68763679376e7461743632776e1a0e0a057561746f6d1205313030303012046d656d6f12610a4e0a460a1f2f636f736d6f732e63727970746f2e736563703235366b312e5075624b657912230a21031053e9ef0295d334b6bb22e20cc717eb1a16a546f692572c8830b4bc14c1367612040a020801120f0a0b0a057561746f6d1202313010641a0b636f736d6f736875622d3420af8426"
 	require.Equal(t, expected, hexStr)
@@ -61,7 +61,7 @@ func TestGetSignedTransaction(t *testing.T) {
 	param.ToAddress = "cosmos1jun53r4ycc8g2v6tffp4cmxjjhv6y7ntat62wn"
 	param.Demon = "uatom"
 	param.Amount = "10000"
-	param.CommonParam.ChainId = "cosmoshub-4"
+	param.CommonParam.ChainID = "cosmoshub-4"
 	param.CommonParam.Sequence = 0
 	param.CommonParam.AccountNumber = 623151
 	param.CommonParam.FeeDemon = "uatom"
@@ -95,7 +95,7 @@ func TestGetSignedJsonTransaction(t *testing.T) {
 	param.ToAddress = "cosmos1rvs5xph4l3px2efynqsthus8p6r4exyr7ckyxv"
 	param.Demon = "uatom"
 	param.Amount = "1000"
-	param.CommonParam.ChainId = "cosmoshub-4"
+	param.CommonParam.ChainID = "cosmoshub-4"
 	param.CommonParam.Sequence = 2
 	param.CommonParam.AccountNumber = 1225716
 	param.CommonParam.FeeDemon = "uatom"
@@ -105,15 +105,16 @@ func TestGetSignedJsonTransaction(t *testing.T) {
 	doc, err := cosmos.GetRawJsonTransaction(param)
 	require.Nil(t, err)
 
-	signature, err := cosmos.SignRawJsonTransaction(doc, k)
+	signature, err := cosmos.SignRawJSONTransaction(doc, k)
 	require.Nil(t, err)
 
 	publicKey := hex.EncodeToString(k.PubKey().SerializeCompressed())
-	signedJsonTransaction, err := cosmos.GetSignedJsonTransaction(doc, publicKey, signature)
+	signedJSONTransaction, err := cosmos.GetSignedJsonTransaction(doc, publicKey, signature)
 	require.Nil(t, err)
 	expected := "CpABCo0BChwvY29zbW9zLmJhbmsudjFiZXRhMS5Nc2dTZW5kEm0KLWNvc21vczFydnM1eHBoNGwzcHgyZWZ5bnFzdGh1czhwNnI0ZXh5cjdja3l4dhItY29zbW9zMXJ2czV4cGg0bDNweDJlZnlucXN0aHVzOHA2cjRleHlyN2NreXh2Gg0KBXVhdG9tEgQxMDAwEmYKUApGCh8vY29zbW9zLmNyeXB0by5zZWNwMjU2azEuUHViS2V5EiMKIQMQU+nvApXTNLa7IuIMxxfrGhalRvaSVyyIMLS8FME2dhIECgIIfxgCEhIKDAoFdWF0b20SAzEzMBCgjQYaQNbZuALq96PyACNflFUnnS5kd/fCZniLitsmRhCR092UHIJYGEUugnG89Be+v6BbWe0E0jPRqPfw36thibn6ix0="
-	require.Equal(t, expected, signedJsonTransaction)
+	require.Equal(t, expected, signedJSONTransaction)
 }
+
 func TestInjectiveAddress(t *testing.T) {
 	address, err := cosmos.NewAddress("9fd01e033b56c22acd8ecd1318300147a73bd48c29d195c53f3e7ea415d78d86", "inj", true)
 	assert.NoError(t, err)
@@ -129,6 +130,7 @@ func TestPubHex2AnyHex(t *testing.T) {
 	assert.NoError(t, err)
 	assert.Equal(t, "0a2103627540e5288e988813fdd8d2b0267a3343f9509899c342d02a12c6cc89056ea1", res)
 }
+
 func TestConvert2AnyPubKey(t *testing.T) {
 	res, err := cosmos.Convert2AnyPubKey("0a2103627540e5288e988813fdd8d2b0267a3343f9509899c342d02a12c6cc89056ea1", false, true)
 	assert.NoError(t, err)
@@ -144,11 +146,12 @@ func TestMakeTransactionWithSignDoc(t *testing.T) {
 	assert.NoError(t, err)
 	assert.Equal(t, "0a99040a96040a242f636f736d7761736d2e7761736d2e76312e4d736745786563757465436f6e747261637412ed030a2b6f736d6f313935797372386e73763833716d7673326474636c617735656634646c637861676d3430653233123f6f736d6f31616a3261717a3034796674737365687433376d686775787874717161637330743376743333327536677472397a3472326c787971356836397a671aea027b22657865637574655f737761705f6f7065726174696f6e73223a7b226d696e696d756d5f72656365697665223a223239333734303537222c22726f75746573223a5b7b226f666665725f616d6f756e74223a2231303030303030222c226f7065726174696f6e73223a5b7b22745f665f6d5f73776170223a7b22706f6f6c5f6964223a3537332c226f666665725f61737365745f696e666f223a7b226e61746976655f746f6b656e223a7b2264656e6f6d223a22756f736d6f227d7d2c2261736b5f61737365745f696e666f223a7b226e61746976655f746f6b656e223a7b2264656e6f6d223a226962632f34453534343443333536313043433736464339344537463738383642393331323131373543323832363244444644444536463834453832424632343235343532227d7d7d7d5d7d5d2c22746f223a226f736d6f313935797372386e73763833716d7673326474636c617735656634646c637861676d3430653233227d7d2a100a05756f736d6f12073130303030303012670a500a460a1f2f636f736d6f732e63727970746f2e736563703235366b312e5075624b657912230a21023201511a7aba3b0c8c31b8db13f85f1fc91dda848c3e262917d61551aa1cc61312040a020801180d12130a0d0a05756f736d6f12043632353010aa931b1a096f736d6f7369732d3120e5e330", res)
 }
+
 func TestGetRawTransaction(t *testing.T) {
 	publicKey := "02dc02bb89e72e0b8e596c2276e341734b98e35c52d8d0462147ebdf9a4b0d9a3c"
 	param := cosmos.IbcTransferParam{
 		CommonParam: cosmos.CommonParam{
-			ChainId:       "crypto-org-chain-mainnet-1",
+			ChainID:       "crypto-org-chain-mainnet-1",
 			Sequence:      2,
 			AccountNumber: 2091572,
 			FeeDemon:      "basecro",
@@ -170,10 +173,11 @@ func TestGetRawTransaction(t *testing.T) {
 	assert.NoError(t, err)
 	assert.Equal(t, "0abf010abc010a292f6962632e6170706c69636174696f6e732e7472616e736665722e76312e4d73675472616e73666572128e010a087472616e73666572120a6368616e6e656c2d31301a110a076261736563726f1206313030303030222d636f736d6f73317739376178736d65346836357536337a396d616c636e726770707236736e36796e71723876382a2b6f736d6f3172767335787068346c337078326566796e7173746875733870367234657879726b723935733732003880f092cbdd08126a0a500a460a1f2f636f736d6f732e63727970746f2e736563703235366b312e5075624b657912230a2102dc02bb89e72e0b8e596c2276e341734b98e35c52d8d0462147ebdf9a4b0d9a3c12040a020801180212160a100a076261736563726f1205313235303010a0c21e1a1a63727970746f2d6f72672d636861696e2d6d61696e6e65742d3120b4d47f", res)
 }
+
 func TestGetRawJsonTransaction(t *testing.T) {
 	param := cosmos.IbcTransferParam{
 		CommonParam: cosmos.CommonParam{
-			ChainId:       "crypto-org-chain-mainnet-1",
+			ChainID:       "crypto-org-chain-mainnet-1",
 			Sequence:      2,
 			AccountNumber: 2091572,
 			FeeDemon:      "basecro",

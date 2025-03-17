@@ -22,14 +22,14 @@ func TestTransfer(t *testing.T) {
 	param.ToAddress = "evmos1yc4q6svsl9xy9g2gplgnlpxwhnzr3y73wfs0xh"
 	param.Demon = "aevmos"
 	param.Amount = "10000000000000000" // 18
-	param.CommonParam.ChainId = "evmos_9001-2"
-	param.CommonParam.Sequence = 0
-	param.CommonParam.AccountNumber = 2091572
-	param.CommonParam.FeeDemon = "aevmos"
-	param.CommonParam.FeeAmount = "3500000000000000"
-	param.CommonParam.GasLimit = 140000
-	param.CommonParam.Memo = ""
-	param.CommonParam.TimeoutHeight = 0
+	param.ChainID = "evmos_9001-2"
+	param.Sequence = 0
+	param.AccountNumber = 2091572
+	param.FeeDemon = "aevmos"
+	param.FeeAmount = "3500000000000000"
+	param.GasLimit = 140000
+	param.Memo = ""
+	param.TimeoutHeight = 0
 	signedTx, err := cosmos.TransferAction(param, privateKeyHex, true)
 	require.Nil(t, err)
 	assert.Equal(t, "CpwBCpkBChwvY29zbW9zLmJhbmsudjFiZXRhMS5Nc2dTZW5kEnkKLGV2bW9zMXljNHE2c3ZzbDl4eTlnMmdwbGdubHB4d2huenIzeTczd2ZzMHhoEixldm1vczF5YzRxNnN2c2w5eHk5ZzJncGxnbmxweHdobnpyM3k3M3dmczB4aBobCgZhZXZtb3MSETEwMDAwMDAwMDAwMDAwMDAwEnsKVwpPCigvZXRoZXJtaW50LmNyeXB0by52MS5ldGhzZWNwMjU2azEuUHViS2V5EiMKIQMQU+nvApXTNLa7IuIMxxfrGhalRvaSVyyIMLS8FME2dhIECgIIARIgChoKBmFldm1vcxIQMzUwMDAwMDAwMDAwMDAwMBDgxQgaQdDLRmTF5ZANbBk2D2ZNjXOonztGsOJxH2o0G+I9WSuhYDLjcQ/qJd89Y1wQ7YWbBZEyUM4IgeogadLf6j6xKT4B", signedTx)
@@ -38,7 +38,7 @@ func TestTransfer(t *testing.T) {
 func TestIbcTransfer(t *testing.T) {
 	privateKeyHex := "1790962db820729606cd7b255ace1ac5ebb129ac8e9b2d8534d022194ab25b37"
 	p := cosmos.IbcTransferParam{}
-	p.CommonParam.ChainId = "evmos_9001-2"
+	p.CommonParam.ChainID = "evmos_9001-2"
 	p.CommonParam.Sequence = 1
 	p.CommonParam.AccountNumber = 2091572
 	p.CommonParam.FeeDemon = "aevmos"
@@ -56,6 +56,7 @@ func TestIbcTransfer(t *testing.T) {
 	signedIbcTx, _ := cosmos.IbcTransferAction(p, privateKeyHex, true)
 	assert.Equal(t, "CswBCskBCikvaWJjLmFwcGxpY2F0aW9ucy50cmFuc2Zlci52MS5Nc2dUcmFuc2ZlchKbAQoIdHJhbnNmZXISCWNoYW5uZWwtMxobCgZhZXZtb3MSETEwMDAwMDAwMDAwMDAwMDAwIixldm1vczF5YzRxNnN2c2w5eHk5ZzJncGxnbmxweHdobnpyM3k3M3dmczB4aCotY29zbW9zMXJ2czV4cGg0bDNweDJlZnlucXN0aHVzOHA2cjRleHlyN2NreXh2MgA4gISn3qOjuZAYEn0KWQpPCigvZXRoZXJtaW50LmNyeXB0by52MS5ldGhzZWNwMjU2azEuUHViS2V5EiMKIQMQU+nvApXTNLa7IuIMxxfrGhalRvaSVyyIMLS8FME2dhIECgIIARgBEiAKGgoGYWV2bW9zEhA0MDAwMDAwMDAwMDAwMDAwEMCaDBpBurCw/OtDiKAVDEJ6XSOVFqhZx+yOkrcU8OfblD8NyhQvOH0FrhPTqAbX+XkSU24qO9rPTvW0gRrcB59peNAGAAE=", signedIbcTx)
 }
+
 func TestNewPubAddress(t *testing.T) {
 	addr, err := NewPubAddress("0450365da35a0a7cd463fe421b7bc78552d3ca47361af11fa5155f4b016f459bfaf80e63125fb4ee5d50f8b10cab5b00a413ff301352ee8b49c19ec3c917231b1f")
 	assert.NoError(t, err)

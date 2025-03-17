@@ -24,11 +24,11 @@ import (
 )
 
 const (
-	ATOM_HRP = "cosmos"
+	AtomHrp = "cosmos"
 )
 
 type CommonParam struct {
-	ChainId       string
+	ChainID       string
 	Sequence      uint64
 	AccountNumber uint64
 	FeeDemon      string
@@ -69,8 +69,8 @@ func NewAddress(privateKey string, hrp string, followETH bool) (string, error) {
 		hash := sha3.NewLegacyKeccak256()
 		hash.Write(pubBytes[1:])
 		addressByte := hash.Sum(nil)
-		address, err := bech32.EncodeFromBase256(hrp, addressByte[12:])
-		if err != nil {
+		address, errB := bech32.EncodeFromBase256(hrp, addressByte[12:])
+		if errB != nil {
 			return "", err
 		}
 		return address, nil
@@ -148,7 +148,7 @@ func DecodeAnyOrPubKey(pubKeyHex string) ([]byte, error) {
 	if err := pubKey.Unmarshal(b); err != nil {
 		return nil, err
 	}
-	//anyPubKey, _ := types.NewAnyWithValue(&pubKey)
+	// anyPubKey, _ := types.NewAnyWithValue(&pubKey)
 	return pubKey.GetKey(), nil
 }
 
@@ -164,6 +164,7 @@ func GetAddressByPublicKey(pubKeyHex string, HRP string) (string, error) {
 	}
 	return address, nil
 }
+
 func ValidateAddress(address string, hrp string) bool {
 	h, _, err := bech32.DecodeToBase256(address)
 	return err == nil && h == hrp
@@ -213,7 +214,7 @@ func MakeTransactionWithMessage(p CommonParam, publicKeyCompressed string, messa
 		return "", err
 	}
 
-	signDoc := tx.SignDoc{BodyBytes: bodyBytes, AuthInfoBytes: authInfoBytes, ChainId: p.ChainId, AccountNumber: p.AccountNumber}
+	signDoc := tx.SignDoc{BodyBytes: bodyBytes, AuthInfoBytes: authInfoBytes, ChainId: p.ChainID, AccountNumber: p.AccountNumber}
 	signDocBtyes, err := signDoc.Marshal()
 	if err != nil {
 		return "", err
@@ -244,11 +245,11 @@ func MakeTransactionWithSignDoc(body string, auth string, ChainId string, Accoun
 // param - （TransferParam | IbcTransferParam）
 // publicKeyCompressed - （hex 33 bytes）
 // return  signDoc
-func GetRawTransaction(param interface{}, publicKeyCompressed string) (string, error) {
-	switch param.(type) {
+func GetRawTransaction(param any, publicKeyCompressed string) (string, error) {
+	switch param := param.(type) {
 	case TransferParam:
 		{
-			p, _ := param.(TransferParam)
+			p := param
 			amount, ok := types.NewIntFromString(p.Amount)
 			if !ok {
 				return "", errors.New("invalid  amount")
@@ -266,7 +267,7 @@ func GetRawTransaction(param interface{}, publicKeyCompressed string) (string, e
 			return MakeTransactionWithMessage(p.CommonParam, publicKeyCompressed, messages)
 		}
 	case IbcTransferParam:
-		p, _ := param.(IbcTransferParam)
+		p := param
 		amount, ok := types.NewIntFromString(p.Amount)
 		if !ok {
 			return "", errors.New("invalid  amount")
@@ -330,10 +331,7 @@ func SignRawTransaction(signDoc string, privateKey *btcec.PrivateKey) (string, e
 		return "", err
 	}
 	hash := sha256.Sum256(signDocBtyes)
-	signature, err := ecdsa.SignCompact(privateKey, hash[:], false)
-	if err != nil {
-		return "", err
-	}
+	signature := ecdsa.SignCompact(privateKey, hash[:], false)
 	return hex.EncodeToString(signature[1:]), nil
 }
 
@@ -462,7 +460,7 @@ func BuildTxAction(param CommonParam, messages []*types.Any, privateKeyHex strin
 	if err != nil {
 		return "", err
 	}
-	signDoc := tx.SignDoc{BodyBytes: bodyBytes, AuthInfoBytes: authInfoBytes, ChainId: param.ChainId, AccountNumber: param.AccountNumber}
+	signDoc := tx.SignDoc{BodyBytes: bodyBytes, AuthInfoBytes: authInfoBytes, ChainId: param.ChainID, AccountNumber: param.AccountNumber}
 	signDocBtyes, err := signDoc.Marshal()
 	if err != nil {
 		return "", err
@@ -471,10 +469,8 @@ func BuildTxAction(param CommonParam, messages []*types.Any, privateKeyHex strin
 	var signBytes []byte
 	if useEthSecp256k1 {
 		m := HashMessage(signDocBtyes)
-		result, err := ecdsa.SignCompact(privateKey, m, false)
-		if err != nil {
-			return "", err
-		}
+		result := ecdsa.SignCompact(privateKey, m, false)
+
 		V := result[0]
 		R := result[1:33]
 		S := result[33:65]
@@ -484,11 +480,7 @@ func BuildTxAction(param CommonParam, messages []*types.Any, privateKeyHex strin
 		signBytes = append(signBytes, V-27)
 	} else {
 		hash := sha256.Sum256(signDocBtyes)
-		var err error
-		signBytes, err = ecdsa.SignCompact(privateKey, hash[:], false)
-		if err != nil {
-			return "", err
-		}
+		signBytes = ecdsa.SignCompact(privateKey, hash[:], false)
 		signBytes = signBytes[1:]
 	}
 
@@ -535,17 +527,15 @@ func BuildTxActionForSignMessage(param CommonParam, messages []*types.Any, priva
 	// signDoc = bodyBytes + authInfoBytes + ChainId + AccountNumber
 	bodyBytes, _ := body.Marshal()
 	authInfoBytes, _ := authInfo.Marshal()
-	signDoc := tx.SignDoc{BodyBytes: bodyBytes, AuthInfoBytes: authInfoBytes, ChainId: param.ChainId, AccountNumber: param.AccountNumber}
+	signDoc := tx.SignDoc{BodyBytes: bodyBytes, AuthInfoBytes: authInfoBytes, ChainId: param.ChainID, AccountNumber: param.AccountNumber}
 	signDocBtyes, _ := signDoc.Marshal()
 
 	// signature
 	var signBytes []byte
 	if useEthSecp256k1 {
 		m := HashMessage(signDocBtyes)
-		result, err := ecdsa.SignCompact(privateKey, m, false)
-		if err != nil {
-			return "", "", err
-		}
+		result := ecdsa.SignCompact(privateKey, m, false)
+
 		V := result[0]
 		R := result[1:33]
 		S := result[33:65]
@@ -555,11 +545,7 @@ func BuildTxActionForSignMessage(param CommonParam, messages []*types.Any, priva
 		signBytes = append(signBytes, V-27)
 	} else {
 		hash := sha256.Sum256(signDocBtyes)
-		var err error
-		signBytes, err = ecdsa.SignCompact(privateKey, hash[:], false)
-		if err != nil {
-			return "", "", err
-		}
+		signBytes = ecdsa.SignCompact(privateKey, hash[:], false)
 		signBytes = signBytes[1:]
 	}
 
@@ -575,21 +561,21 @@ func BuildTxActionForSignMessage(param CommonParam, messages []*types.Any, priva
 }
 
 type MessageData struct {
-	ChainId       string `json:"chain_id,omitempty"`
+	ChainID       string `json:"chain_id,omitempty"`
 	AccountNumber string `json:"account_number,omitempty"`
 	Sequence      string `json:"sequence,omitempty"`
 	Fee           struct {
 		Gas    string       `json:"gas,omitempty"`
 		Amount []types.Coin `json:"amount,omitempty"`
-	} `json:"fee,omitempty"`
+	} `json:"fee"`
 	Msgs []struct {
-		T string      `json:"type,omitempty"`
-		V interface{} `json:"value,omitempty"`
+		T string `json:"type,omitempty"`
+		V any    `json:"value,omitempty"`
 	} `json:"msgs,omitempty"`
 	Memo string `json:"memo,omitempty"`
 }
 
-func SignDoc(body string, auth string, privateKeyHex string, ChainId string, AccountNumber uint64) (string, string, error) {
+func SignDoc(body string, auth string, privateKeyHex string, ChainID string, AccountNumber uint64) (string, string, error) {
 	bodyBytes, err := hexutil.Decode(body)
 	if err != nil {
 		return "", "", err
@@ -600,7 +586,7 @@ func SignDoc(body string, auth string, privateKeyHex string, ChainId string, Acc
 		return "", "", err
 	}
 
-	signDoc := tx.SignDoc{BodyBytes: bodyBytes, AuthInfoBytes: authInfoBytes, ChainId: ChainId, AccountNumber: AccountNumber}
+	signDoc := tx.SignDoc{BodyBytes: bodyBytes, AuthInfoBytes: authInfoBytes, ChainId: ChainID, AccountNumber: AccountNumber}
 	signDocBtyes, err := signDoc.Marshal()
 	if err != nil {
 		return "", "", err
@@ -615,10 +601,7 @@ func SignDoc(body string, auth string, privateKeyHex string, ChainId string, Acc
 
 	var signBytes []byte
 	hash := sha256.Sum256(signDocBtyes)
-	signature, err := ecdsa.SignCompact(privateKey, hash[:], false)
-	if err != nil {
-		return "", "", err
-	}
+	signature := ecdsa.SignCompact(privateKey, hash[:], false)
 	signBytes = signature[1:]
 
 	signatures := make([][]byte, 0)
@@ -632,20 +615,20 @@ func SignDoc(body string, auth string, privateKeyHex string, ChainId string, Acc
 	return base64.StdEncoding.EncodeToString(transBytes), base64.StdEncoding.EncodeToString(signBytes), nil
 }
 
-func sortedObject(obj interface{}) interface{} {
+func sortedObject(obj any) any {
 	switch v := obj.(type) {
-	case map[string]interface{}:
+	case map[string]any:
 		keys := make([]string, 0, len(v))
 		for key := range v {
 			keys = append(keys, key)
 		}
 		sort.Strings(keys)
-		result := make(map[string]interface{})
+		result := make(map[string]any)
 		for _, key := range keys {
 			result[key] = sortedObject(v[key])
 		}
 		return result
-	case []interface{}:
+	case []any:
 		for i, item := range v {
 			v[i] = sortedObject(item)
 		}
@@ -656,7 +639,7 @@ func sortedObject(obj interface{}) interface{} {
 }
 
 func SignAminoMessage(data string, privateKeyHex string) (string, error) {
-	var msg map[string]interface{}
+	var msg map[string]any
 	json.Unmarshal([]byte(data), &msg)
 
 	sortedMsg := sortedObject(msg)
@@ -672,10 +655,8 @@ func SignAminoMessage(data string, privateKeyHex string) (string, error) {
 	}
 
 	privateKey, _ := btcec.PrivKeyFromBytes(pkBytes)
-	signature, err := ecdsa.SignCompact(privateKey, hash[:], false)
-	if err != nil {
-		return "", err
-	}
+	signature := ecdsa.SignCompact(privateKey, hash[:], false)
+
 	return base64.StdEncoding.EncodeToString(signature[1:]), nil
 }
 
@@ -717,7 +698,7 @@ func SignMessageAction(data string, privateKeyHex string, useEthSecp256k1 bool) 
 	param.FeeDemon = messageData.Fee.Amount[0].Denom
 	param.FeeAmount = messageData.Fee.Amount[0].Amount.String()
 	param.GasLimit = string2Uint64(messageData.Fee.Gas)
-	param.ChainId = messageData.ChainId
+	param.ChainID = messageData.ChainID
 	return BuildTxActionForSignMessage(param, messages, privateKeyHex, useEthSecp256k1)
 }
 
@@ -731,7 +712,7 @@ func getJsonSignDoc(p *CommonParam, msg *types.StdAny) (*types.StdSignDoc, error
 	signDoc := types.StdSignDoc{}
 	signDoc.AccountNumber = strconv.FormatUint(p.AccountNumber, 10)
 	signDoc.Sequence = strconv.FormatUint(p.Sequence, 10)
-	signDoc.ChainID = p.ChainId
+	signDoc.ChainID = p.ChainID
 	signDoc.Memo = p.Memo
 	if p.TimeoutHeight != 0 {
 		signDoc.TimeoutHeight = strconv.FormatUint(p.TimeoutHeight, 10)
@@ -752,7 +733,7 @@ func getJsonSignDoc(p *CommonParam, msg *types.StdAny) (*types.StdSignDoc, error
 	return &signDoc, nil
 }
 
-func GetRawJsonTransaction(param interface{}) (string, error) {
+func GetRawJsonTransaction(param any) (string, error) {
 	switch param.(type) {
 	case TransferParam:
 		{
@@ -900,16 +881,16 @@ func GetSignedJsonTransaction(signDoc string, publicKey string, signature string
 	}
 	return base64.StdEncoding.EncodeToString(transBytes), nil
 }
+
 func GetSigningHash(rawTxByte string) (string, error) {
 	txHashByte := sha256.Sum256([]byte(rawTxByte))
 	txHashHex := hex.EncodeToString(txHashByte[:])
 	return txHashHex, nil
 }
-func SignRawJsonTransaction(signDoc string, privateKey *btcec.PrivateKey) (string, error) {
+
+func SignRawJSONTransaction(signDoc string, privateKey *btcec.PrivateKey) (string, error) {
 	hash := sha256.Sum256([]byte(signDoc))
-	signature, err := ecdsa.SignCompact(privateKey, hash[:], false)
-	if err != nil {
-		return "", err
-	}
+	signature := ecdsa.SignCompact(privateKey, hash[:], false)
+
 	return hex.EncodeToString(signature[1:]), nil
 }

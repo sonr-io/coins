@@ -45,7 +45,7 @@ func TestTransfer(t *testing.T) {
 	key, _ := masterKey.NewChildKeyByChainId(330)
 	privateKeyHex := hex.EncodeToString(key.Key.Key)
 	input := TransactionInput{}
-	input.ChainId = "bombay-12"
+	input.ChainID = "bombay-12"
 	input.Memo = "test"
 	input.Sequence = 4
 	input.AccountNumber = 588053
@@ -72,13 +72,13 @@ func TestTokenTransfer(t *testing.T) {
 	key, _ := masterKey.NewChildKeyByChainId(330)
 	privateKeyHex := hex.EncodeToString(key.Key.Key)
 	input := TransactionInput{}
-	input.ChainId = "bombay-12"
+	input.ChainID = "bombay-12"
 	input.Memo = "test"
 	input.Sequence = 9
 	input.AccountNumber = 588053
 	input.GasLimit = 1000000
 	input.AppendFeeCoin("uluna", big.NewInt(100000))
-	//input.AppendSwapMsg("terra1xmkczk59xgjhzgwhfg8l5tgs2uftpuj9cgazr4", "uusd", "uluna", big.NewInt(1000000))
+	// input.AppendSwapMsg("terra1xmkczk59xgjhzgwhfg8l5tgs2uftpuj9cgazr4", "uusd", "uluna", big.NewInt(1000000))
 	contractCoins := types.NewCoins(types.NewCoin("uluna", types.NewIntFromUint64(1000000)))
 	input.AppendContractMsg("terra1xmkczk59xgjhzgwhfg8l5tgs2uftpuj9cgazr4", "terra14z80rwpd0alzj4xdtgqdmcqt9wd9xj5ffd60wp", "{\n  \"execute_swap_operations\": {\n    \"minimum_receive\": \"34117468\",\n    \"offer_amount\": \"1000000\",\n    \"operations\": [\n      {\n        \"terra_swap\": {\n          \"ask_asset_info\": {\n            \"token\": {\n              \"contract_addr\": \"terra1u0t35drzyy0mujj8rkdyzhe264uls4ug3wdp3x\"\n            }\n          },\n          \"offer_asset_info\": {\n            \"native_token\": {\n              \"denom\": \"uluna\"\n            }\n          }\n        }\n      },\n      {\n        \"terra_swap\": {\n          \"ask_asset_info\": {\n            \"native_token\": {\n              \"denom\": \"uusd\"\n            }\n          },\n          \"offer_asset_info\": {\n            \"token\": {\n              \"contract_addr\": \"terra1u0t35drzyy0mujj8rkdyzhe264uls4ug3wdp3x\"\n            }\n          }\n        }\n      }\n    ]\n  }\n}", &contractCoins)
 	rawTx := NewTransaction(input, privateKeyHex)
@@ -90,7 +90,7 @@ func TestTokenTransfer(t *testing.T) {
 
 func TestGetRawTxHex(t *testing.T) {
 	input := TransactionInput{}
-	input.ChainId = "bombay-12"
+	input.ChainID = "bombay-12"
 	input.Memo = "test"
 	input.Sequence = 9
 	input.AccountNumber = 588053

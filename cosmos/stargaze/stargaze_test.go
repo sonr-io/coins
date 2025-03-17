@@ -26,7 +26,7 @@ func TestTransfer(t *testing.T) {
 	param.ToAddress = address
 	param.Demon = "ustars"
 	param.Amount = "1000"
-	param.CommonParam.ChainId = "stargaze-1"
+	param.CommonParam.ChainID = "stargaze-1"
 	param.CommonParam.Sequence = 0
 	param.CommonParam.AccountNumber = 149288
 	param.CommonParam.FeeDemon = "ustars"
@@ -43,7 +43,7 @@ func TestTransfer(t *testing.T) {
 func TestIbcTransfer(t *testing.T) {
 	privateKeyHex := "1790962db820729606cd7b255ace1ac5ebb129ac8e9b2d8534d022194ab25b37"
 	p := cosmos.IbcTransferParam{}
-	p.CommonParam.ChainId = "stargaze-1"
+	p.CommonParam.ChainID = "stargaze-1"
 	p.CommonParam.Sequence = 2
 	p.CommonParam.AccountNumber = 149288
 	p.CommonParam.FeeDemon = "ustars"

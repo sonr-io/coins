@@ -15,7 +15,7 @@ import (
 )
 
 type TransactionInput struct {
-	ChainId       string
+	ChainID       string
 	Memo          string
 	Sequence      uint64
 	AccountNumber uint64
@@ -127,12 +127,12 @@ func NewTransaction(input TransactionInput, privateKeyHex string) string {
 	authInfo := tx.AuthInfo{SignerInfos: signerInfo, Fee: &fee}
 	bodyBytes, _ := body.Marshal()
 	authInfoBytes, _ := authInfo.Marshal()
-	signDoc := tx.SignDoc{BodyBytes: bodyBytes, AuthInfoBytes: authInfoBytes, ChainId: input.ChainId, AccountNumber: input.AccountNumber}
+	signDoc := tx.SignDoc{BodyBytes: bodyBytes, AuthInfoBytes: authInfoBytes, ChainId: input.ChainID, AccountNumber: input.AccountNumber}
 	signDocBtyes, _ := signDoc.Marshal()
 	return hex.EncodeToString(signDocBtyes)
 }
 
-func NewTransactionWithTypeUrl(input TransactionInput, privateKeyHex string) string {
+func NewTransactionWithTypeURL(input TransactionInput, privateKeyHex string) string {
 	privateKeyBytes, _ := hex.DecodeString(privateKeyHex)
 	_, publicKey := btcec.PrivKeyFromBytes(privateKeyBytes)
 	messages := make([]*types.Any, 0)
@@ -166,7 +166,7 @@ func NewTransactionWithTypeUrl(input TransactionInput, privateKeyHex string) str
 	authInfo := tx.AuthInfo{SignerInfos: signerInfo, Fee: &fee}
 	bodyBytes, _ := body.Marshal()
 	authInfoBytes, _ := authInfo.Marshal()
-	signDoc := tx.SignDoc{BodyBytes: bodyBytes, AuthInfoBytes: authInfoBytes, ChainId: input.ChainId, AccountNumber: input.AccountNumber}
+	signDoc := tx.SignDoc{BodyBytes: bodyBytes, AuthInfoBytes: authInfoBytes, ChainId: input.ChainID, AccountNumber: input.AccountNumber}
 	signDocBtyes, _ := signDoc.Marshal()
 	return hex.EncodeToString(signDocBtyes)
 }
@@ -177,10 +177,7 @@ func Sign(rawHex string, privateKeyHex string) string {
 
 	signDocBtyes, _ := hex.DecodeString(rawHex)
 	hash := sha256.Sum256(signDocBtyes)
-	b, err := ecdsa.SignCompact(privateKey, hash[:], false)
-	if err != nil {
-		return ""
-	}
+	b := ecdsa.SignCompact(privateKey, hash[:], false)
 	return hex.EncodeToString(b[1:])
 }
 
@@ -219,7 +216,7 @@ func GetRawTxHex(input TransactionInput, pub string) string {
 	authInfo := tx.AuthInfo{SignerInfos: signerInfo, Fee: &fee}
 	bodyBytes, _ := body.Marshal()
 	authInfoBytes, _ := authInfo.Marshal()
-	signDoc := tx.SignDoc{BodyBytes: bodyBytes, AuthInfoBytes: authInfoBytes, ChainId: input.ChainId, AccountNumber: input.AccountNumber}
+	signDoc := tx.SignDoc{BodyBytes: bodyBytes, AuthInfoBytes: authInfoBytes, ChainId: input.ChainID, AccountNumber: input.AccountNumber}
 	signDocBtyes, _ := signDoc.Marshal()
 	return hex.EncodeToString(signDocBtyes)
 }

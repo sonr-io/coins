@@ -33,8 +33,9 @@ func ValidateAddress(address string) bool {
 	return err == nil && hrp == HRP
 }
 
-func SignStart(chainId string, from string, to string, demon string, memo string,
-	amount *big.Int, timeoutHeight uint64, sequence uint64, accountNumber uint64, feeAmount *big.Int, gasLimit uint64, privateKey *btcec.PrivateKey) (string, error) {
+func SignStart(chainID string, from string, to string, demon string, memo string,
+	amount *big.Int, timeoutHeight uint64, sequence uint64, accountNumber uint64, feeAmount *big.Int, gasLimit uint64, privateKey *btcec.PrivateKey,
+) (string, error) {
 	coin := types.NewCoin(demon, types.NewIntFromBigInt(amount))
 	coins := types.NewCoins(coin)
 	sendMsg := types.MsgSend{FromAddress: from, ToAddress: to, Amount: coins}
@@ -76,7 +77,7 @@ func SignStart(chainId string, from string, to string, demon string, memo string
 	if err != nil {
 		return "", err
 	}
-	signDoc := tx.SignDoc{BodyBytes: bodyBytes, AuthInfoBytes: authInfoBytes, ChainId: chainId, AccountNumber: accountNumber}
+	signDoc := tx.SignDoc{BodyBytes: bodyBytes, AuthInfoBytes: authInfoBytes, ChainId: chainID, AccountNumber: accountNumber}
 	signDocBtyes, err := signDoc.Marshal()
 	if err != nil {
 		return "", err
@@ -90,10 +91,7 @@ func Sign(rawHex string, privateKey *btcec.PrivateKey) (string, error) {
 		return "", err
 	}
 	hash := sha256.Sum256(signDocBytes)
-	signature, err := ecdsa.SignCompact(privateKey, hash[:], false)
-	if err != nil {
-		return "", err
-	}
+	signature := ecdsa.SignCompact(privateKey, hash[:], false)
 	return hex.EncodeToString(signature[1:]), nil
 }
 
