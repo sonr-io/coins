@@ -5,8 +5,7 @@ version_files = [
     "go.mod:module git.sonr.io/pkg/coins/avax"
 ]
 version_scheme = "semver"
-version = "0.0.1"
+version = "0.0.0"
 update_changelog_on_bump = true
 major_version_zero = true
 changelog_file = "CHANGELOG.md"
-changelog_incremental = true
