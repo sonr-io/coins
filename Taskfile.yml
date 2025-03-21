@@ -32,3 +32,19 @@ tasks:
       - task: solana:default
       - task: sui:default
       - task: tezos:default
+
+  bump:
+    run: always
+    cmds:
+      - task: aptos:bump
+      - task: avax:bump
+      - task: bitcoin:bump
+      - task: cosmos:bump
+      - task: ethereum:bump
+      - task: filecoin:bump
+      - task: helium:bump
+      - task: polkadot:bump
+      - task: solana:bump
+      - task: sui:bump
+      - task: tezos:bump
+      - git push origin --tags
