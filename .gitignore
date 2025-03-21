@@ -2,3 +2,4 @@
 go.work.sum
 go.sum
 .idea/
+.DS_Store
