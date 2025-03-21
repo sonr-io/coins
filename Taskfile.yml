@@ -48,3 +48,4 @@ tasks:
       - task: sui:bump
       - task: tezos:bump
       - git push origin --tags
+      - git push
