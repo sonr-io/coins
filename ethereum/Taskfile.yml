@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
+version: "3"
+silent: true
+tasks:
+  default:
+    run: always
+    vars:
+      MOD:
+        sh: grep -m 1 "^module" go.mod | awk '{print $2}'
+    cmds:
+      - gum format "# {{.MOD}}"
+      - task: tidy
+      - task: test
+
+  tidy:
+    run: always
+    cmds:
+      - gum spin --spinner dot --title "Running go mod tidy" -- go mod tidy
+
+  test:
+    run: always
+    cmds:
+      - gum spin --spinner dot --title "Running go tests" -- go test -v
+      - gum log --level info "Tests succeeded"
+
+  bump:
+    run: always
+    cmds:
+      - cz bump --increment PATCH --allow-no-commit --yes
