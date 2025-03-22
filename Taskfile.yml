@@ -1,51 +1,45 @@
 # yaml-language-server: $schema=https://taskfile.dev/schema.json
 version: "3"
 silent: true
-includes:
-  aptos: { taskfile: aptos/Taskfile.yml, dir: ./aptos }
-  avax: { taskfile: avax/Taskfile.yml, dir: ./avax }
-  bitcoin: { taskfile: bitcoin/Taskfile.yml, dir: ./bitcoin }
-  cosmos: { taskfile: cosmos/Taskfile.yml, dir: ./cosmos }
-  ethereum: { taskfile: ethereum/Taskfile.yml, dir: ./ethereum }
-  filecoin: { taskfile: filecoin/Taskfile.yml, dir: ./filecoin }
-  helium: { taskfile: helium/Taskfile.yml, dir: ./helium }
-  polkadot: { taskfile: polkadot/Taskfile.yml, dir: ./polkadot }
-  solana: { taskfile: solana/Taskfile.yml, dir: ./solana }
-  sui: { taskfile: sui/Taskfile.yml, dir: ./sui }
-  tezos: { taskfile: tezos/Taskfile.yml, dir: ./tezos }
 
 vars:
   GIT_ROOT:
     sh: git rev-parse --show-toplevel
+  DIRS:
+    sh: find . -maxdepth 1 -type d -not -name ".git" | grep -v "^\.$"
 
 tasks:
   default:
     cmds:
-      - task: aptos:default
-      - task: avax:default
-      - task: bitcoin:default
-      - task: cosmos:default
-      - task: ethereum:default
-      - task: filecoin:default
-      - task: helium:default
-      - task: polkadot:default
-      - task: solana:default
-      - task: sui:default
-      - task: tezos:default
+      - for: { var: DIRS }
+        task: test
+        vars:
+          DIR: "{{.ITEM}}"
 
-  bump:
+  release:
     run: always
     cmds:
-      - task: aptos:bump
-      - task: avax:bump
-      - task: bitcoin:bump
-      - task: cosmos:bump
-      - task: ethereum:bump
-      - task: filecoin:bump
-      - task: helium:bump
-      - task: polkadot:bump
-      - task: solana:bump
-      - task: sui:bump
-      - task: tezos:bump
+      - for: { var: DIRS }
+        task: bump
+        vars:
+          DIR: "{{.ITEM}}"
       - git push origin --tags
       - git push
+
+  test:
+    internal: true
+    requires:
+      vars: [DIR]
+    dir: "{{.DIR}}"
+    cmds:
+      - gum spin --spinner dot --title "[{{.DIR}}] Running go mod tidy" -- go mod tidy
+      - gum spin --spinner dot --title "[{{.DIR}}] Running go tests" -- go test -v
+      - gum log --level info "[{{.DIR}}] Tests succeeded"
+
+  bump:
+    internal: true
+    requires:
+      vars: [DIR]
+    dir: "{{.DIR}}"
+    cmds:
+      - cz bump --increment PATCH --allow-no-commit --yes
