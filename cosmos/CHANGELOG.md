@@ -1,3 +1,14 @@
+## cosmos/v0.0.4 (2025-03-22)
+
+### Feat
+
+- upgrade crypto library to v0.3.0
+- add confirmation prompt to version bump task
+
+### Refactor
+
+- update module paths to use GitHub repository
+
 ## cosmos/v0.0.3 (2025-03-21)
 
 ### Refactor
