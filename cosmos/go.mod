@@ -3,7 +3,7 @@ module git.sonr.io/pkg/coins/cosmos
 go 1.24.1
 
 require (
-	cosmossdk.io/math v1.1.2
+	cosmossdk.io/math v1.4.0
 	github.com/btcsuite/btcd/btcec/v2 v2.3.4
 	github.com/btcsuite/btcd/btcutil v1.1.3
 	github.com/ethereum/go-ethereum v1.15.5
