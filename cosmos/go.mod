@@ -5,15 +5,15 @@ go 1.24.1
 require (
 	cosmossdk.io/math v1.4.0
 	github.com/btcsuite/btcd/btcec/v2 v2.3.4
-	github.com/btcsuite/btcd/btcutil v1.1.3
+	github.com/btcsuite/btcd/btcutil v1.1.5
 	github.com/ethereum/go-ethereum v1.15.5
 	github.com/stretchr/testify v1.10.0
 	golang.org/x/crypto v0.36.0
 )
 
 require (
-	github.com/btcsuite/btcd v0.23.4 // indirect
-	github.com/btcsuite/btcd/chaincfg/chainhash v1.0.2 // indirect
+	github.com/btcsuite/btcd v0.24.2 // indirect
+	github.com/btcsuite/btcd/chaincfg/chainhash v1.1.0 // indirect
 	github.com/davecgh/go-spew v1.1.2-0.20180830191138-d8f796af33cc // indirect
 	github.com/decred/dcrd/dcrec/secp256k1/v4 v4.4.0 // indirect
 	github.com/holiman/uint256 v1.3.2 // indirect
