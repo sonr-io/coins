@@ -37,6 +37,7 @@ tasks:
       - gum log --level info "[{{.DIR}}] Tests succeeded"
 
   bump:
+    prompt: Continue with version bump?
     internal: true
     requires:
       vars: [DIR]
