@@ -3,8 +3,8 @@ package ethsecp256k1
 import (
 	"bytes"
 
-	"git.sonr.io/pkg/coins/cosmos/okc/tx/amino"
-	"git.sonr.io/pkg/coins/cosmos/okc/tx/tendermint"
+	"github.com/sonr-io/coins/cosmos/okc/tx/amino"
+	"github.com/sonr-io/coins/cosmos/okc/tx/tendermint"
 	"github.com/btcsuite/btcd/btcec/v2"
 	"golang.org/x/crypto/sha3"
 )

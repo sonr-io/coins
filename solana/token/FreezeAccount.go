@@ -18,7 +18,7 @@ import (
 	"errors"
 	"fmt"
 
-	"git.sonr.io/pkg/coins/solana/base"
+	"github.com/sonr-io/coins/solana/base"
 )
 
 // Freeze an Initialized account using the Mint's freeze_authority (if set).

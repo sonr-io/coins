@@ -5,7 +5,7 @@ Author： https://github.com/hecodev007/block_sign
 package transactions
 
 import (
-	"git.sonr.io/pkg/coins/helium/keypair"
+	"github.com/sonr-io/coins/helium/keypair"
 )
 
 type PaymentV1Tx struct {

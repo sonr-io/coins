@@ -8,7 +8,7 @@ Solana SDK is used to interact with the Solana blockchain, it contains various f
 To obtain the latest version, simply require the project using :
 
 ```shell
-go get -u git.sonr.io/pkg/coins/solana
+go get -u github.com/sonr-io/coins/solana
 ```
 
 ## Usage

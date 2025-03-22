@@ -18,7 +18,7 @@ import (
 	"errors"
 	"fmt"
 
-	"git.sonr.io/pkg/coins/solana/base"
+	"github.com/sonr-io/coins/solana/base"
 )
 
 // Burns tokens by removing them from an account.  `Burn` does not support

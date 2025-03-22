@@ -3,7 +3,7 @@ package polkadot
 import (
 	"encoding/hex"
 
-	"git.sonr.io/pkg/crypto/ss58"
+	"github.com/sonr-io/crypto/ss58"
 )
 
 var (

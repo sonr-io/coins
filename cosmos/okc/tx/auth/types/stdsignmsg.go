@@ -1,7 +1,7 @@
 package types
 
 import (
-	"git.sonr.io/pkg/coins/cosmos/okc/tx/common/types"
+	"github.com/sonr-io/coins/cosmos/okc/tx/common/types"
 )
 
 // StdSignMsg is a convenience structure for passing along

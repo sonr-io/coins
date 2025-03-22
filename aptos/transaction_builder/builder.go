@@ -3,8 +3,8 @@ package transaction_builder
 import (
 	"errors"
 
-	"git.sonr.io/pkg/coins/aptos/aptos_types"
-	"git.sonr.io/pkg/coins/aptos/bcs"
+	"github.com/sonr-io/coins/aptos/aptos_types"
+	"github.com/sonr-io/coins/aptos/bcs"
 )
 
 func ToBCSArgs(abiArgs []aptos_types.ArgumentABI, args []any) ([][]byte, error) {

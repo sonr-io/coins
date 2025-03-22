@@ -6,7 +6,7 @@ import (
 	"io"
 	time "time"
 
-	"git.sonr.io/pkg/coins/cosmos/types"
+	"github.com/sonr-io/coins/cosmos/types"
 )
 
 type MsgLockTokens struct {

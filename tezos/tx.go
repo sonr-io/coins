@@ -4,7 +4,7 @@ import (
 	"errors"
 	"fmt"
 
-	"git.sonr.io/pkg/coins/tezos/types"
+	"github.com/sonr-io/coins/tezos/types"
 )
 
 const GasSafetyMargin int64 = 100

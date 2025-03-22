@@ -3,8 +3,8 @@ package bitcoin
 import (
 	"encoding/hex"
 
-	"git.sonr.io/pkg/crypto/base58"
-	"git.sonr.io/pkg/crypto/util"
+	"github.com/sonr-io/crypto/base58"
+	"github.com/sonr-io/crypto/util"
 	"github.com/btcsuite/btcd/btcutil"
 	"github.com/btcsuite/btcd/chaincfg"
 	"github.com/btcsuite/btcd/txscript"

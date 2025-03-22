@@ -6,7 +6,7 @@ import (
 	"sort"
 	"strings"
 
-	"git.sonr.io/pkg/coins/cosmos/okc/tx/amino"
+	"github.com/sonr-io/coins/cosmos/okc/tx/amino"
 )
 
 // DecCoin defines a coin which can have additional decimal points

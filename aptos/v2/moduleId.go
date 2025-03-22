@@ -1,7 +1,7 @@
 package v2
 
 import (
-	"git.sonr.io/pkg/coins/aptos/v2/bcs"
+	"github.com/sonr-io/coins/aptos/v2/bcs"
 )
 
 // ModuleId the identifier for a module e.g. 0x1::coin

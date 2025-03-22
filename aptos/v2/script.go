@@ -3,7 +3,7 @@ package v2
 import (
 	"math/big"
 
-	"git.sonr.io/pkg/coins/aptos/v2/bcs"
+	"github.com/sonr-io/coins/aptos/v2/bcs"
 )
 
 // Script A Move script as compiled code as a transaction

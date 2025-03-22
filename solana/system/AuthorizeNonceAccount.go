@@ -19,7 +19,7 @@ import (
 	"errors"
 	"fmt"
 
-	"git.sonr.io/pkg/coins/solana/base"
+	"github.com/sonr-io/coins/solana/base"
 )
 
 // Change the entity authorized to execute nonce instructions on the account

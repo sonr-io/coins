@@ -5,8 +5,8 @@ import (
 	"math/big"
 	"testing"
 
-	"git.sonr.io/pkg/coins/cosmos"
-	"git.sonr.io/pkg/coins/cosmos/types/ibc"
+	"github.com/sonr-io/coins/cosmos"
+	"github.com/sonr-io/coins/cosmos/types/ibc"
 	"github.com/btcsuite/btcd/btcec/v2"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"

@@ -9,7 +9,7 @@ import (
 	"sort"
 	"strings"
 
-	"git.sonr.io/pkg/coins/bitcoin"
+	"github.com/sonr-io/coins/bitcoin"
 	"github.com/btcsuite/btcd/btcec/v2"
 	"github.com/btcsuite/btcd/btcutil"
 	"github.com/btcsuite/btcd/chaincfg"

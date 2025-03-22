@@ -4,8 +4,8 @@ import (
 	"crypto/ed25519"
 	"testing"
 
-	"git.sonr.io/pkg/coins/aptos/v2/bcs"
-	"git.sonr.io/pkg/coins/aptos/v2/internal/util"
+	"github.com/sonr-io/coins/aptos/v2/bcs"
+	"github.com/sonr-io/coins/aptos/v2/internal/util"
 	"github.com/stretchr/testify/assert"
 )
 

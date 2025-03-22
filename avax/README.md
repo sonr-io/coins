@@ -8,7 +8,7 @@ Avax SDK is used to interact with the Avalanche blockchain, it contains various 
 To obtain the latest version, simply require the project using :
 
 ```shell
-go get -u git.sonr.io/pkg/coins/avax
+go get -u github.com/sonr-io/coins/avax
 ```
 
 ## Usage

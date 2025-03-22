@@ -1,7 +1,7 @@
 package v2
 
 import (
-	"git.sonr.io/pkg/coins/aptos/v2/internal/util"
+	"github.com/sonr-io/coins/aptos/v2/internal/util"
 )
 
 // -- Note these are copied from internal/util/util.go to prevent package loops, but still allow devs to use it

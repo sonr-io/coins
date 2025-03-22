@@ -26,7 +26,7 @@ import (
 	"fmt"
 	"math"
 
-	"git.sonr.io/pkg/crypto/base58"
+	"github.com/sonr-io/crypto/base58"
 )
 
 type PrivateKey []byte

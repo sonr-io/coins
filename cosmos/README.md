@@ -24,7 +24,7 @@ The SDK not only support Atom, it also supports following chains:
 To obtain the latest version, simply require the project using :
 
 ```shell
-go get -u git.sonr.io/pkg/coins/cosmos
+go get -u github.com/sonr-io/coins/cosmos
 ```
 
 ## Usage

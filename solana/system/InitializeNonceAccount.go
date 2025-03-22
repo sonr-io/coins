@@ -17,7 +17,7 @@ package system
 import (
 	"encoding/binary"
 
-	"git.sonr.io/pkg/coins/solana/base"
+	"github.com/sonr-io/coins/solana/base"
 )
 
 // Drive state of Uninitalized nonce account to Initialized, setting the nonce value

@@ -5,7 +5,7 @@ package nft_candy_machine_v2
 import (
 	"errors"
 
-	"git.sonr.io/pkg/coins/solana/base"
+	"github.com/sonr-io/coins/solana/base"
 )
 
 // UpdateCandyMachine is the `updateCandyMachine` instruction.

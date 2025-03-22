@@ -17,7 +17,7 @@ package token
 import (
 	"errors"
 
-	"git.sonr.io/pkg/coins/solana/base"
+	"github.com/sonr-io/coins/solana/base"
 )
 
 // Like InitializeAccount2, but does not require the Rent sysvar to be provided.

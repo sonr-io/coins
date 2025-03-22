@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	"git.sonr.io/pkg/coins/aptos/v2/bcs"
+	"github.com/sonr-io/coins/aptos/v2/bcs"
 )
 
 type TypeTagType uint64

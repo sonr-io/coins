@@ -1,10 +1,10 @@
-module git.sonr.io/pkg/coins/bitcoin
+module github.com/sonr-io/coins/bitcoin
 
 go 1.24.1
 
 require (
-	git.sonr.io/pkg/crypto v0.0.2
-	git.sonr.io/pkg/crypto/util v0.0.2
+	github.com/sonr-io/crypto v0.2.0
+	github.com/sonr-io/crypto/util v0.0.2
 	github.com/btcsuite/btcd v0.23.4
 	github.com/btcsuite/btcd/btcec/v2 v2.3.4
 	github.com/btcsuite/btcd/btcutil v1.1.3

@@ -6,8 +6,8 @@ import (
 	"encoding/hex"
 	"math/big"
 
-	"git.sonr.io/pkg/coins/cosmos/tx"
-	"git.sonr.io/pkg/coins/cosmos/types"
+	"github.com/sonr-io/coins/cosmos/tx"
+	"github.com/sonr-io/coins/cosmos/types"
 	"github.com/btcsuite/btcd/btcec/v2"
 	"github.com/btcsuite/btcd/btcec/v2/ecdsa"
 	"github.com/btcsuite/btcd/btcutil"

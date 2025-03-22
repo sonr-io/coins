@@ -1,9 +1,9 @@
 package token
 
 import (
-	"git.sonr.io/pkg/coins/cosmos/okc/tx/amino"
-	"git.sonr.io/pkg/coins/cosmos/okc/tx/common"
-	"git.sonr.io/pkg/coins/cosmos/okc/tx/common/types"
+	"github.com/sonr-io/coins/cosmos/okc/tx/amino"
+	"github.com/sonr-io/coins/cosmos/okc/tx/common"
+	"github.com/sonr-io/coins/cosmos/okc/tx/common/types"
 )
 
 // MsgSend - high level transaction of the coin module

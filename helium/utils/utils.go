@@ -11,7 +11,7 @@ import (
 	"math/big"
 	"strconv"
 
-	"git.sonr.io/pkg/crypto/base58"
+	"github.com/sonr-io/crypto/base58"
 	"github.com/shopspring/decimal"
 )
 

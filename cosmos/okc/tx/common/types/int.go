@@ -6,7 +6,7 @@ import (
 	"math/big"
 	"testing"
 
-	"git.sonr.io/pkg/coins/cosmos/okc/tx/amino"
+	"github.com/sonr-io/coins/cosmos/okc/tx/amino"
 )
 
 const maxBitLen = 255

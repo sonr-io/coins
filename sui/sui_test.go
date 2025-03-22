@@ -7,7 +7,7 @@ import (
 	"encoding/json"
 	"testing"
 
-	"git.sonr.io/pkg/crypto/ed25519"
+	"github.com/sonr-io/crypto/ed25519"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )

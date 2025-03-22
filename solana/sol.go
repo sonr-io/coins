@@ -7,14 +7,14 @@ import (
 	"errors"
 	"fmt"
 
-	associatedtokenaccount "git.sonr.io/pkg/coins/solana/associated-token-account"
-	computebudget "git.sonr.io/pkg/coins/solana/compute-budget"
+	associatedtokenaccount "github.com/sonr-io/coins/solana/associated-token-account"
+	computebudget "github.com/sonr-io/coins/solana/compute-budget"
 	"github.com/tyler-smith/go-bip39"
 
-	"git.sonr.io/pkg/crypto/base58"
-	"git.sonr.io/pkg/coins/solana/base"
-	"git.sonr.io/pkg/coins/solana/system"
-	"git.sonr.io/pkg/coins/solana/token"
+	"github.com/sonr-io/crypto/base58"
+	"github.com/sonr-io/coins/solana/base"
+	"github.com/sonr-io/coins/solana/system"
+	"github.com/sonr-io/coins/solana/token"
 )
 
 var (

@@ -5,7 +5,7 @@ Author： https://github.com/hecodev007/block_sign
 package keypair
 
 import (
-	"git.sonr.io/pkg/crypto/base58"
+	"github.com/sonr-io/crypto/base58"
 )
 
 type Addressable struct {

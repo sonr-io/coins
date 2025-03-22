@@ -8,7 +8,7 @@ Ethereum SDK is used to interact with the Ethereum blockchain or Evm blockchains
 To obtain the latest version, simply require the project using :
 
 ```shell
-go get -u git.sonr.io/pkg/coins/ethereum
+go get -u github.com/sonr-io/coins/ethereum
 ```
 
 ## Usage

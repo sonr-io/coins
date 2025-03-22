@@ -3,8 +3,8 @@ package helium
 import (
 	"encoding/base64"
 
-	"git.sonr.io/pkg/coins/helium/keypair"
-	"git.sonr.io/pkg/coins/helium/transactions"
+	"github.com/sonr-io/coins/helium/keypair"
+	"github.com/sonr-io/coins/helium/transactions"
 )
 
 func Sign(private string, from, to string, amount, fee, nonce uint64, tokenType string, isMax bool) (string, error) {

@@ -5,7 +5,7 @@ import (
 	"encoding/hex"
 	"math/big"
 
-	"git.sonr.io/pkg/crypto/util"
+	"github.com/sonr-io/crypto/util"
 	"github.com/btcsuite/btcd/btcec/v2"
 	"github.com/ethereum/go-ethereum/rlp"
 	"golang.org/x/crypto/sha3"

@@ -4,7 +4,7 @@ import (
 	"errors"
 	"fmt"
 
-	"git.sonr.io/pkg/coins/aptos/v2/bcs"
+	"github.com/sonr-io/coins/aptos/v2/bcs"
 )
 
 // TransactionPayload the actual instructions of which functions to call on chain

@@ -5,12 +5,12 @@ import (
 	"encoding/json"
 	"testing"
 
-	"git.sonr.io/pkg/crypto/base58"
+	"github.com/sonr-io/crypto/base58"
 	"github.com/stretchr/testify/require"
 
-	"git.sonr.io/pkg/crypto/ed25519"
-	"git.sonr.io/pkg/coins/solana/base"
-	"git.sonr.io/pkg/coins/solana/token"
+	"github.com/sonr-io/crypto/ed25519"
+	"github.com/sonr-io/coins/solana/base"
+	"github.com/sonr-io/coins/solana/token"
 )
 
 func TestNewAddress(t *testing.T) {

@@ -3,8 +3,8 @@ package crypto
 import (
 	"fmt"
 
-	"git.sonr.io/pkg/coins/aptos/v2/bcs"
-	"git.sonr.io/pkg/coins/aptos/v2/internal/util"
+	"github.com/sonr-io/coins/aptos/v2/bcs"
+	"github.com/sonr-io/coins/aptos/v2/internal/util"
 )
 
 // Seeds for deriving addresses from addresses

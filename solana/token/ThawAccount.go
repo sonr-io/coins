@@ -18,7 +18,7 @@ import (
 	"errors"
 	"fmt"
 
-	"git.sonr.io/pkg/coins/solana/base"
+	"github.com/sonr-io/coins/solana/base"
 )
 
 // Thaw a Frozen account using the Mint's freeze_authority (if set).

@@ -1,7 +1,7 @@
 package tezos
 
 import (
-	"git.sonr.io/pkg/coins/tezos/types"
+	"github.com/sonr-io/coins/tezos/types"
 )
 
 func ValidAddress(addr string) (bool, error) {

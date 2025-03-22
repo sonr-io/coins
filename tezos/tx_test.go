@@ -4,7 +4,7 @@ import (
 	"encoding/hex"
 	"testing"
 
-	"git.sonr.io/pkg/coins/tezos/types"
+	"github.com/sonr-io/coins/tezos/types"
 	"github.com/stretchr/testify/require"
 )
 

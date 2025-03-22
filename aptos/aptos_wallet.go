@@ -3,7 +3,7 @@ package aptos
 import (
 	"encoding/hex"
 
-	"git.sonr.io/pkg/crypto/ed25519"
+	"github.com/sonr-io/crypto/ed25519"
 	"github.com/okx/go-wallet-sdk/wallet"
 )
 

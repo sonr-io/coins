@@ -15,7 +15,7 @@ The SDK not only support Bitcoin, it also supports following chains:
 To obtain the latest version, simply require the project using :
 
 ```shell
-go get -u git.sonr.io/pkg/coins/bitcoin
+go get -u github.com/sonr-io/coins/bitcoin
 ```
 
 ## Usage

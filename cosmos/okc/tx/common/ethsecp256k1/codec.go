@@ -1,7 +1,7 @@
 package ethsecp256k1
 
 import (
-	"git.sonr.io/pkg/coins/cosmos/okc/tx/amino"
+	"github.com/sonr-io/coins/cosmos/okc/tx/amino"
 )
 
 // RegisterCodec registers all the necessary types with amino for the given

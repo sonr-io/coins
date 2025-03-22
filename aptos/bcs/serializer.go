@@ -5,7 +5,7 @@ import (
 	"errors"
 	"sort"
 
-	"git.sonr.io/pkg/coins/aptos/serde"
+	"github.com/sonr-io/coins/aptos/serde"
 )
 
 // `serializer` extends `serde.BinarySerializer` to implement `serde.Serializer`.

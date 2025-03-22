@@ -3,9 +3,9 @@ package osmo
 import (
 	"errors"
 
-	"git.sonr.io/pkg/coins/cosmos"
-	"git.sonr.io/pkg/coins/cosmos/osmo/tx/gamm"
-	"git.sonr.io/pkg/coins/cosmos/types"
+	"github.com/sonr-io/coins/cosmos"
+	"github.com/sonr-io/coins/cosmos/osmo/tx/gamm"
+	"github.com/sonr-io/coins/cosmos/types"
 )
 
 const (

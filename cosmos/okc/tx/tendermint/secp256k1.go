@@ -6,7 +6,7 @@ import (
 	"crypto/subtle"
 	"fmt"
 
-	"git.sonr.io/pkg/coins/cosmos/okc/tx/amino"
+	"github.com/sonr-io/coins/cosmos/okc/tx/amino"
 	"github.com/btcsuite/btcd/btcec/v2"
 	"golang.org/x/crypto/ripemd160"
 )

@@ -8,7 +8,7 @@ Aptos SDK is used to interact with the Aptos blockchain, it contains various fun
 To obtain the latest version, simply require the project using :
 
 ```shell
-go get -u git.sonr.io/pkg/coins/aptos
+go get -u github.com/sonr-io/coins/aptos
 ```
 
 ## Usage

@@ -3,7 +3,7 @@ package v2
 import (
 	"testing"
 
-	"git.sonr.io/pkg/coins/aptos/v2/crypto"
+	"github.com/sonr-io/coins/aptos/v2/crypto"
 	"github.com/stretchr/testify/assert"
 )
 

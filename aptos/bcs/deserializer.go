@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"errors"
 
-	"git.sonr.io/pkg/coins/aptos/serde"
+	"github.com/sonr-io/coins/aptos/serde"
 )
 
 // MaxSequenceLength Maximum length allowed for sequences (vectors, bytes, strings) and maps.

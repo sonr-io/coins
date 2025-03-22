@@ -1,9 +1,9 @@
-module git.sonr.io/pkg/coins/tezos
+module github.com/sonr-io/coins/tezos
 
 go 1.24.1
 
 require (
-	git.sonr.io/pkg/crypto v0.0.2
+	github.com/sonr-io/crypto v0.2.0
 	github.com/decred/dcrd/dcrec/secp256k1/v4 v4.4.0
 	github.com/stretchr/testify v1.10.0
 	golang.org/x/crypto v0.36.0

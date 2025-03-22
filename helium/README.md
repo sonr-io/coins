@@ -8,7 +8,7 @@ Helium SDK is used to interact with the Helium blockchain, it contains various f
 To obtain the latest version, simply require the project using :
 
 ```shell
-go get -u git.sonr.io/pkg/coins/helium
+go get -u github.com/sonr-io/coins/helium
 ```
 
 ## Usage

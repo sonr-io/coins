@@ -6,8 +6,8 @@ import (
 	"regexp"
 	"strings"
 
-	"git.sonr.io/pkg/coins/aptos/bcs"
-	"git.sonr.io/pkg/coins/aptos/serde"
+	"github.com/sonr-io/coins/aptos/bcs"
+	"github.com/sonr-io/coins/aptos/serde"
 )
 
 var ErrNullObject = errors.New("cannot serialize null object")

@@ -8,8 +8,8 @@ import (
 	"reflect"
 	"strconv"
 
-	"git.sonr.io/pkg/coins/aptos/aptos_types"
-	"git.sonr.io/pkg/coins/aptos/serde"
+	"github.com/sonr-io/coins/aptos/aptos_types"
+	"github.com/sonr-io/coins/aptos/serde"
 )
 
 func serializeArg(argVal any, argType aptos_types.TypeTag, serializer serde.Serializer) error {

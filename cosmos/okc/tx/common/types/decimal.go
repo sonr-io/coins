@@ -9,7 +9,7 @@ import (
 	"strings"
 	"testing"
 
-	"git.sonr.io/pkg/coins/cosmos/okc/tx/amino"
+	"github.com/sonr-io/coins/cosmos/okc/tx/amino"
 )
 
 // NOTE: never use new(Dec) or else we will panic unmarshalling into the

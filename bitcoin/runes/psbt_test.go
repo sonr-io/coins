@@ -5,7 +5,7 @@ import (
 	"encoding/hex"
 	"testing"
 
-	"git.sonr.io/pkg/coins/bitcoin"
+	"github.com/sonr-io/coins/bitcoin"
 	"github.com/btcsuite/btcd/btcutil"
 	"github.com/btcsuite/btcd/btcutil/psbt"
 	"github.com/btcsuite/btcd/chaincfg"

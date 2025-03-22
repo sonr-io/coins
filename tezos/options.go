@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"strconv"
 
-	"git.sonr.io/pkg/coins/tezos/types"
+	"github.com/sonr-io/coins/tezos/types"
 )
 
 var DefaultOptions = CallOptions{

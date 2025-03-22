@@ -17,7 +17,7 @@ package token
 import (
 	"errors"
 
-	"git.sonr.io/pkg/coins/solana/base"
+	"github.com/sonr-io/coins/solana/base"
 )
 
 // Initializes a new account to hold tokens.  If this account is associated

@@ -11,11 +11,11 @@ import (
 	"strconv"
 	"strings"
 
-	"git.sonr.io/pkg/coins/aptos/aptos_types"
-	"git.sonr.io/pkg/coins/aptos/transaction_builder"
+	"github.com/sonr-io/coins/aptos/aptos_types"
+	"github.com/sonr-io/coins/aptos/transaction_builder"
 
-	"git.sonr.io/pkg/coins/aptos/serde"
-	"git.sonr.io/pkg/crypto/ed25519"
+	"github.com/sonr-io/coins/aptos/serde"
+	"github.com/sonr-io/crypto/ed25519"
 )
 
 func ShortenAddress(address string) string {

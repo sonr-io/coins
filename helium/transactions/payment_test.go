@@ -4,7 +4,7 @@ import (
 	"encoding/base64"
 	"testing"
 
-	"git.sonr.io/pkg/coins/helium/keypair"
+	"github.com/sonr-io/coins/helium/keypair"
 	"github.com/stretchr/testify/require"
 )
 

@@ -29,7 +29,7 @@ import (
 	"io"
 	math_bits "math/bits"
 
-	"git.sonr.io/pkg/coins/cosmos/types"
+	"github.com/sonr-io/coins/cosmos/types"
 )
 
 // types1 "github.com/cosmos/ibc-go/v4/modules/core/02-client/types"

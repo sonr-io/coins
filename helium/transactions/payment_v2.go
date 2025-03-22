@@ -5,8 +5,8 @@ Author： https://github.com/hecodev007/block_sign
 package transactions
 
 import (
-	"git.sonr.io/pkg/coins/helium/keypair"
-	"git.sonr.io/pkg/coins/helium/protos"
+	"github.com/sonr-io/coins/helium/keypair"
+	"github.com/sonr-io/coins/helium/protos"
 	"github.com/golang/protobuf/proto"
 )
 

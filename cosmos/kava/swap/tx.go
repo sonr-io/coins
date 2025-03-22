@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"io"
 
-	"git.sonr.io/pkg/coins/cosmos/types"
+	"github.com/sonr-io/coins/cosmos/types"
 )
 
 // MsgDeposit represents a message for depositing liquidity into a pool

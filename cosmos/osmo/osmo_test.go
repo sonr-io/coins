@@ -8,9 +8,9 @@ import (
 
 	time "time"
 
-	"git.sonr.io/pkg/coins/cosmos"
-	"git.sonr.io/pkg/coins/cosmos/osmo/tx"
-	"git.sonr.io/pkg/coins/cosmos/types"
+	"github.com/sonr-io/coins/cosmos"
+	"github.com/sonr-io/coins/cosmos/osmo/tx"
+	"github.com/sonr-io/coins/cosmos/types"
 )
 
 // Check account details

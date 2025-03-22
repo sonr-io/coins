@@ -23,7 +23,7 @@ import (
 	"fmt"
 	"sort"
 
-	"git.sonr.io/pkg/crypto/base58"
+	"github.com/sonr-io/crypto/base58"
 )
 
 type Transaction struct {

@@ -8,7 +8,7 @@ Sui SDK is used to interact with the Sui blockchain, it contains various functio
 To obtain the latest version, simply require the project using :
 
 ```shell
-go get -u git.sonr.io/pkg/coins/sui
+go get -u github.com/sonr-io/coins/sui
 ```
 
 ## Usage

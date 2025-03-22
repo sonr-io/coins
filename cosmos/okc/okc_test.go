@@ -3,10 +3,10 @@ package okc
 import (
 	"testing"
 
-	"git.sonr.io/pkg/coins/cosmos"
-	"git.sonr.io/pkg/coins/cosmos/okc/tx"
-	"git.sonr.io/pkg/coins/cosmos/okc/tx/common/types"
-	"git.sonr.io/pkg/coins/cosmos/okc/tx/token"
+	"github.com/sonr-io/coins/cosmos"
+	"github.com/sonr-io/coins/cosmos/okc/tx"
+	"github.com/sonr-io/coins/cosmos/okc/tx/common/types"
+	"github.com/sonr-io/coins/cosmos/okc/tx/token"
 	"github.com/stretchr/testify/require"
 )
 

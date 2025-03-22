@@ -1,10 +1,10 @@
-module git.sonr.io/pkg/coins/aptos
+module github.com/sonr-io/coins/aptos
 
 go 1.24.1
 
 require (
-	git.sonr.io/pkg/crypto v0.0.2
 	github.com/okx/go-wallet-sdk/wallet v0.0.0-20231109124131-23d8b0dd4b6f
+	github.com/sonr-io/crypto v0.2.0
 	github.com/stretchr/testify v1.10.0
 	golang.org/x/crypto v0.36.0
 )

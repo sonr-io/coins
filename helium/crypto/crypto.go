@@ -5,8 +5,8 @@ Author： https://github.com/hecodev007/block_sign
 package crypto
 
 import (
-	ed25519_helium "git.sonr.io/pkg/coins/helium/crypto/ed25519"
-	nist_p256 "git.sonr.io/pkg/coins/helium/crypto/nist-p256"
+	ed25519_helium "github.com/sonr-io/coins/helium/crypto/ed25519"
+	nist_p256 "github.com/sonr-io/coins/helium/crypto/nist-p256"
 )
 
 type Curves interface {

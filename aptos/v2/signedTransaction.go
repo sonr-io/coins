@@ -3,8 +3,8 @@ package v2
 import (
 	"errors"
 
-	"git.sonr.io/pkg/coins/aptos/v2/bcs"
-	"git.sonr.io/pkg/coins/aptos/v2/crypto"
+	"github.com/sonr-io/coins/aptos/v2/bcs"
+	"github.com/sonr-io/coins/aptos/v2/crypto"
 )
 
 // SignedTransaction a raw transaction plus its authenticator for a fully verifiable message

@@ -3,7 +3,7 @@ package evmos
 import (
 	"encoding/hex"
 
-	"git.sonr.io/pkg/coins/cosmos"
+	"github.com/sonr-io/coins/cosmos"
 	"github.com/btcsuite/btcd/btcec/v2"
 	"github.com/btcsuite/btcd/btcutil/bech32"
 	"golang.org/x/crypto/sha3"

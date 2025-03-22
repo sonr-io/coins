@@ -19,7 +19,7 @@ import (
 	"errors"
 	"fmt"
 
-	"git.sonr.io/pkg/coins/solana/base"
+	"github.com/sonr-io/coins/solana/base"
 )
 
 // Allocate space for and assign an account at an address derived from a base public key and a seed

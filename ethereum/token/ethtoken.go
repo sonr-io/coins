@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"math/big"
 
-	"git.sonr.io/pkg/crypto/util/abi"
+	"github.com/sonr-io/crypto/util/abi"
 )
 
 func ParseErc20JsonAbi(data string) *abi.ABI {

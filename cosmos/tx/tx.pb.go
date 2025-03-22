@@ -5,7 +5,7 @@ import (
 	"io"
 	math_bits "math/bits"
 
-	"git.sonr.io/pkg/coins/cosmos/types"
+	"github.com/sonr-io/coins/cosmos/types"
 )
 
 // Tx is the standard type used for broadcasting transactions.

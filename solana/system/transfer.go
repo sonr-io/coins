@@ -3,7 +3,7 @@ package system
 import (
 	"encoding/binary"
 
-	"git.sonr.io/pkg/coins/solana/base"
+	"github.com/sonr-io/coins/solana/base"
 )
 
 // Transfer lamports

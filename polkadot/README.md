@@ -8,7 +8,7 @@ Polkdot SDK is used to interact with the Polkdot blockchain, it contains various
 To obtain the latest version, simply require the project using :
 
 ```shell
-go get -u git.sonr.io/pkg/crypto/polkdot
+go get -u github.com/sonr-io/crypto/polkdot
 ```
 
 ## Usage

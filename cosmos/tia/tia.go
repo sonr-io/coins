@@ -1,7 +1,7 @@
 package tia
 
 import (
-	"git.sonr.io/pkg/coins/cosmos"
+	"github.com/sonr-io/coins/cosmos"
 )
 
 const (

@@ -8,7 +8,7 @@ import (
 	"math/big"
 	"strings"
 
-	"git.sonr.io/pkg/crypto/base58"
+	"github.com/sonr-io/crypto/base58"
 )
 
 func WriteUint64(buf *bytes.Buffer, value uint64) error {

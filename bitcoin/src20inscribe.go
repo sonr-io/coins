@@ -6,7 +6,7 @@ import (
 	"errors"
 	"strings"
 
-	"git.sonr.io/pkg/crypto/util"
+	"github.com/sonr-io/crypto/util"
 	"github.com/btcsuite/btcd/btcec/v2"
 	"github.com/btcsuite/btcd/btcutil"
 	"github.com/btcsuite/btcd/chaincfg"

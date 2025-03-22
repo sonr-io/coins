@@ -1,7 +1,7 @@
 package tendermint
 
 import (
-	"git.sonr.io/pkg/coins/cosmos/okc/tx/amino"
+	"github.com/sonr-io/coins/cosmos/okc/tx/amino"
 )
 
 // RegisterAmino registers all crypto related types in the given (amino) codec.

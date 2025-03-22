@@ -1,6 +1,6 @@
 package stargaze
 
-import "git.sonr.io/pkg/coins/cosmos"
+import "github.com/sonr-io/coins/cosmos"
 
 const (
 	HRP = "stars"

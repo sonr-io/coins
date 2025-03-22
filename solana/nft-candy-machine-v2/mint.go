@@ -1,6 +1,6 @@
 package nft_candy_machine_v2
 
-import "git.sonr.io/pkg/coins/solana/base"
+import "github.com/sonr-io/coins/solana/base"
 
 func GetTokenWallet(wallet base.PublicKey, mint base.PublicKey, options ...string) (base.PublicKey, error) {
 	tokenProgramID := base.TokenProgramID

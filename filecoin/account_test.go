@@ -5,7 +5,7 @@ import (
 	"math/big"
 	"testing"
 
-	"git.sonr.io/pkg/crypto/util"
+	"github.com/sonr-io/crypto/util"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )

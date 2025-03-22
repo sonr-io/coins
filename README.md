@@ -1,7 +1,7 @@
 # Sonr Go Wallet SDK
 
-[![Go Reference](https://pkg.go.dev/badge/git.sonr.io/pkg/coins.svg)](https://pkg.go.dev/git.sonr.io/pkg/coins)
-[![License](https://img.shields.io/github/license/sonr/go-wallet-sdk)](https://git.sonr.io/pkg/coins/blob/main/LICENSE)
+[![Go Reference](https://pkg.go.dev/badge/github.com/sonr-io/coins.svg)](https://pkg.go.dev/github.com/sonr-io/coins)
+[![License](https://img.shields.io/github/license/sonr/go-wallet-sdk)](https://github.com/sonr-io/coins/blob/main/LICENSE)
 
 The Sonr Go Wallet SDK is a comprehensive solution for building wallet applications with offline transaction capabilities across multiple blockchain networks. It provides a unified interface for account management, transaction creation, and signing across various mainstream public chains.
 
@@ -20,8 +20,8 @@ For detailed documentation and API references, please refer to the README files 
 
 Example:
 
-- [Aptos README](https://git.sonr.io/pkg/coins/tree/main/aptos)
-- [Bitcoin README](https://git.sonr.io/pkg/coins/tree/main/bitcoin)
+- [Aptos README](https://github.com/sonr-io/coins/tree/main/aptos)
+- [Bitcoin README](https://github.com/sonr-io/coins/tree/main/bitcoin)
 
 ## 🌐 Supported Chains
 
@@ -48,9 +48,9 @@ _Note: Bitcoin support includes BRC20, Atomicals, and Runes-related functions, s
 
 The Sonr Go Wallet SDK follows a modular architecture, comprising the following core components:
 
-1. **`git.sonr.io/pkg/coins`**: Implements transaction creation and signing for each blockchain.
-2. **`git.sonr.io/pkg/crypto`**: Manages general cryptographic operations and signature algorithms.
-3. **`git.sonr.io/pkg/crypto/util`**: Provides helper utilities for common operations.
+1. **`github.com/sonr-io/coins`**: Implements transaction creation and signing for each blockchain.
+2. **`github.com/sonr-io/crypto`**: Manages general cryptographic operations and signature algorithms.
+3. **`github.com/sonr-io/crypto/util`**: Provides helper utilities for common operations.
 
 This structure allows for easy integration and extension of new blockchains.
 
@@ -65,8 +65,8 @@ export GONOPROXY=git.sonr.io
 export GONOSUMDB=git.sonr.io
 
 # Install SDK components
-go get -u git.sonr.io/pkg/coins/bitcoin
-go get -u git.sonr.io/pkg/crypto
+go get -u github.com/sonr-io/coins/bitcoin
+go get -u github.com/sonr-io/crypto
 ```
 
 ## ⚙️ Build and Test
@@ -85,7 +85,7 @@ The output will display the build status for each chain. If a module fails, the 
 
 ## 💬 Feedback and Support
 
-The Sonr Go Wallet SDK is based on the OKX Web3 Go Wallet SDK with enhanced features and optimizations. Each blockchain's specific usage can be found in the corresponding README within the `coins` directory. If you encounter any issues or have suggestions, please submit them through [GitLab Issues](https://git.sonr.io/pkg/coins/issues), and we will address them promptly.
+The Sonr Go Wallet SDK is based on the OKX Web3 Go Wallet SDK with enhanced features and optimizations. Each blockchain's specific usage can be found in the corresponding README within the `coins` directory. If you encounter any issues or have suggestions, please submit them through [GitLab Issues](https://github.com/sonr-io/coins/issues), and we will address them promptly.
 
 ## 📜 License
 
@@ -93,4 +93,4 @@ The Sonr Go Wallet SDK is open-source software licensed under the [MIT license](
 
 ---
 
-This README has been updated to reflect the repository reorganization, with crypto operations moved to git.sonr.io/pkg/crypto and the main wallet functionality in git.sonr.io/pkg/coins.
+This README has been updated to reflect the repository reorganization, with crypto operations moved to github.com/sonr-io/crypto and the main wallet functionality in github.com/sonr-io/coins.

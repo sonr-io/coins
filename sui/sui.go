@@ -10,8 +10,8 @@ import (
 	"regexp"
 	"strings"
 
-	"git.sonr.io/pkg/crypto/base58"
-	"git.sonr.io/pkg/crypto/ed25519"
+	"github.com/sonr-io/crypto/base58"
+	"github.com/sonr-io/crypto/ed25519"
 	"github.com/dchest/blake2b"
 )
 

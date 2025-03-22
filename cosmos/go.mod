@@ -1,4 +1,4 @@
-module git.sonr.io/pkg/coins/cosmos
+module github.com/sonr-io/coins/cosmos
 
 go 1.24.1
 

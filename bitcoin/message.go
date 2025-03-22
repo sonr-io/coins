@@ -11,7 +11,7 @@ import (
 	"math/big"
 	"reflect"
 
-	"git.sonr.io/pkg/crypto"
+	"github.com/sonr-io/crypto"
 	"github.com/btcsuite/btcd/btcec/v2"
 	"github.com/btcsuite/btcd/btcec/v2/ecdsa"
 	"github.com/btcsuite/btcd/btcec/v2/schnorr"

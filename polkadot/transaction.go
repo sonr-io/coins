@@ -9,7 +9,7 @@ import (
 
 	"golang.org/x/crypto/blake2b"
 
-	"git.sonr.io/pkg/crypto/util"
+	"github.com/sonr-io/crypto/util"
 )
 
 type TxStruct struct {

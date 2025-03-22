@@ -7,7 +7,7 @@ import (
 	"net/url"
 	"time"
 
-	"git.sonr.io/pkg/coins/aptos/v2/bcs"
+	"github.com/sonr-io/coins/aptos/v2/bcs"
 )
 
 // For Content-Type header when POST-ing a Transaction

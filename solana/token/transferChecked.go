@@ -1,7 +1,7 @@
 package token
 
 import (
-	"git.sonr.io/pkg/coins/solana/base"
+	"github.com/sonr-io/coins/solana/base"
 )
 
 // Transfers tokens from one account to another either directly or via a

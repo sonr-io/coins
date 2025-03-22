@@ -1,7 +1,7 @@
 package token
 
 import (
-	"git.sonr.io/pkg/coins/cosmos/okc/tx/amino"
+	"github.com/sonr-io/coins/cosmos/okc/tx/amino"
 )
 
 // RegisterCodec registers concrete types on the Amino codec

@@ -8,7 +8,7 @@ Filecoin SDK is used to interact with the Filecoin blockchain, it contains vario
 To obtain the latest version, simply require the project using :
 
 ```shell
-go get -u git.sonr.io/pkg/coins/filecoin
+go get -u github.com/sonr-io/coins/filecoin
 ```
 
 ## Usage

@@ -15,7 +15,7 @@ import (
 	"strconv"
 	"strings"
 
-	"git.sonr.io/pkg/crypto/util"
+	"github.com/sonr-io/crypto/util"
 	"github.com/btcsuite/btcd/btcec/v2"
 	ecdsa2 "github.com/btcsuite/btcd/btcec/v2/ecdsa"
 	"github.com/dchest/blake2b"

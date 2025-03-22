@@ -9,9 +9,9 @@ import (
 	"encoding/hex"
 	"errors"
 
-	cre "git.sonr.io/pkg/coins/helium/crypto"
-	"git.sonr.io/pkg/coins/helium/utils"
-	"git.sonr.io/pkg/crypto/base58"
+	cre "github.com/sonr-io/coins/helium/crypto"
+	"github.com/sonr-io/coins/helium/utils"
+	"github.com/sonr-io/crypto/base58"
 )
 
 const (

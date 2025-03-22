@@ -9,7 +9,7 @@ import (
 	"fmt"
 	"io"
 
-	"git.sonr.io/pkg/coins/bitcoin/doginals"
+	"github.com/sonr-io/coins/bitcoin/doginals"
 	"github.com/btcsuite/btcd/btcec/v2"
 	"github.com/btcsuite/btcd/btcec/v2/ecdsa"
 	"github.com/btcsuite/btcd/btcec/v2/schnorr"

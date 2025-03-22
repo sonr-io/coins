@@ -3,7 +3,7 @@ package tia
 import (
 	"testing"
 
-	"git.sonr.io/pkg/coins/cosmos"
+	"github.com/sonr-io/coins/cosmos"
 	"github.com/stretchr/testify/require"
 )
 

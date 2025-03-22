@@ -1,4 +1,4 @@
-module git.sonr.io/pkg/coins/filecoin
+module github.com/sonr-io/coins/filecoin
 
 go 1.24.1
 
@@ -10,7 +10,7 @@ require (
 	github.com/stretchr/testify v1.10.0
 )
 
-require git.sonr.io/pkg/crypto/util v0.0.2
+require github.com/sonr-io/crypto/util v0.0.2
 
 require (
 	github.com/btcsuite/btcd/chaincfg/chainhash v1.0.2 // indirect

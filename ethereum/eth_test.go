@@ -11,7 +11,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"git.sonr.io/pkg/coins/ethereum/token"
+	"github.com/sonr-io/coins/ethereum/token"
 )
 
 func TestEcRecoverPubKey(t *testing.T) {
