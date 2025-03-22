@@ -3,9 +3,9 @@ module github.com/sonr-io/coins/helium
 go 1.24.1
 
 require (
-	github.com/sonr-io/crypto v0.2.0
 	github.com/golang/protobuf v1.5.4
 	github.com/shopspring/decimal v1.3.1
+	github.com/sonr-io/crypto v0.3.0
 	github.com/stretchr/testify v1.10.0
 	golang.org/x/crypto v0.36.0
 	google.golang.org/protobuf v1.36.5

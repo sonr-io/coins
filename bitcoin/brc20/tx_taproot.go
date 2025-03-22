@@ -7,7 +7,6 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/sonr-io/crypto/util"
 	"github.com/btcsuite/btcd/btcec/v2"
 	"github.com/btcsuite/btcd/btcec/v2/ecdsa"
 	"github.com/btcsuite/btcd/btcec/v2/schnorr"
@@ -16,11 +15,10 @@ import (
 	"github.com/btcsuite/btcd/chaincfg/chainhash"
 	"github.com/btcsuite/btcd/txscript"
 	"github.com/btcsuite/btcd/wire"
+	"github.com/sonr-io/crypto/util"
 )
 
-var (
-	maxChange, _ = btcutil.NewAmount(0.01)
-)
+var maxChange, _ = btcutil.NewAmount(0.01)
 
 type TransactionBuilder struct {
 	inputs  []Input
@@ -227,7 +225,7 @@ func (build *TransactionBuilder) Build() (string, error) {
 		amount := util.ConvertToBigInt(input.value).Int64()
 		// the address is taproot address
 		if isTaproot {
-			//create taproot script
+			// create taproot script
 			inscriptionScript, err := CreateInscriptionScript(prvKey, input.inscription.contentType, input.inscription.body)
 			if err != nil {
 				return "", err
@@ -248,7 +246,7 @@ func (build *TransactionBuilder) Build() (string, error) {
 		} else if isSegWit {
 			// for  SegWit address
 			sigHashes := txscript.NewTxSigHashes(tx, prevOuts)
-			//p2pkh code
+			// p2pkh code
 			scriptStr := fmt.Sprintf("1976a914%s88ac", hex.EncodeToString(btcutil.Hash160(pubKey.SerializeCompressed())))
 			scriptCode, err := hex.DecodeString(scriptStr)
 			if err != nil {
@@ -270,7 +268,7 @@ func (build *TransactionBuilder) Build() (string, error) {
 			} else {
 				// P2SH address - Multi-signature address (not supported) && Segregated Witness compatible address
 				sigHashes := txscript.NewTxSigHashes(tx, prevOuts)
-				//P2PKH
+				// P2PKH
 				scriptStr := fmt.Sprintf("1976a914%s88ac", hex.EncodeToString(btcutil.Hash160(pubKey.SerializeCompressed())))
 				scriptCode, err := hex.DecodeString(scriptStr)
 				if err != nil {

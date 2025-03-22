@@ -3,7 +3,7 @@ module github.com/sonr-io/coins/solana
 go 1.24.1
 
 require (
-	github.com/sonr-io/crypto v0.2.0
+	github.com/sonr-io/crypto v0.3.0
 	github.com/stretchr/testify v1.10.0
 	github.com/tyler-smith/go-bip39 v1.1.0
 )

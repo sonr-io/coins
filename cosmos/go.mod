@@ -3,7 +3,7 @@ module github.com/sonr-io/coins/cosmos
 go 1.24.1
 
 require (
-	cosmossdk.io/math v1.1.2
+	cosmossdk.io/math v1.4.0
 	github.com/btcsuite/btcd/btcec/v2 v2.3.4
 	github.com/btcsuite/btcd/btcutil v1.1.3
 	github.com/ethereum/go-ethereum v1.15.5
@@ -19,7 +19,7 @@ require (
 	github.com/holiman/uint256 v1.3.2 // indirect
 	github.com/pmezard/go-difflib v1.0.1-0.20181226105442-5d4384ee4fb2 // indirect
 	github.com/rogpeppe/go-internal v1.13.1 // indirect
-	golang.org/x/exp v0.0.0-20230810033253-352e893a4cad // indirect
+	golang.org/x/exp v0.0.0-20250218142911-aa4b98e5adaa // indirect
 	golang.org/x/sys v0.31.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )

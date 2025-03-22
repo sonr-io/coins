@@ -3,14 +3,13 @@ module github.com/sonr-io/coins/bitcoin
 go 1.24.1
 
 require (
-	github.com/sonr-io/crypto v0.2.0
-	github.com/sonr-io/crypto/util v0.0.2
 	github.com/btcsuite/btcd v0.23.4
 	github.com/btcsuite/btcd/btcec/v2 v2.3.4
 	github.com/btcsuite/btcd/btcutil v1.1.3
 	github.com/btcsuite/btcd/btcutil/psbt v1.1.8
 	github.com/btcsuite/btcd/chaincfg/chainhash v1.0.2
 	github.com/ethereum/go-ethereum v1.15.5
+	github.com/sonr-io/crypto v0.3.0
 	github.com/stretchr/testify v1.10.0
 )
 

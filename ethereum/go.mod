@@ -3,10 +3,9 @@ module github.com/sonr-io/coins/ethereum
 go 1.24.1
 
 require (
-	github.com/sonr-io/crypto v0.0.3
-	github.com/sonr-io/crypto/util v0.0.3
 	github.com/btcsuite/btcd/btcec/v2 v2.3.4
 	github.com/ethereum/go-ethereum v1.15.5
+	github.com/sonr-io/crypto v0.3.0
 	github.com/stretchr/testify v1.10.0
 	golang.org/x/crypto v0.36.0
 )

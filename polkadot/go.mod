@@ -3,8 +3,7 @@ module github.com/sonr-io/coins/polkadot
 go 1.24.1
 
 require (
-	github.com/sonr-io/crypto v0.2.0
-	github.com/sonr-io/crypto/util v0.0.2
+	github.com/sonr-io/crypto v0.3.0
 	github.com/stretchr/testify v1.10.0
 	golang.org/x/crypto v0.36.0
 )

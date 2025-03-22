@@ -3,9 +3,9 @@ module github.com/sonr-io/coins/avax
 go 1.24.1
 
 require (
-	github.com/sonr-io/crypto v0.2.0
 	github.com/btcsuite/btcd/btcec/v2 v2.3.4
 	github.com/btcsuite/btcd/btcutil v1.1.3
+	github.com/sonr-io/crypto v0.3.0
 	github.com/stretchr/testify v1.10.0
 )
 

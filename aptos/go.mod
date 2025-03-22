@@ -4,7 +4,7 @@ go 1.24.1
 
 require (
 	github.com/okx/go-wallet-sdk/wallet v0.0.0-20231109124131-23d8b0dd4b6f
-	github.com/sonr-io/crypto v0.2.0
+	github.com/sonr-io/crypto v0.3.0
 	github.com/stretchr/testify v1.10.0
 	golang.org/x/crypto v0.36.0
 )
