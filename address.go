@@ -1,6 +1,9 @@
 package coins
 
 import (
+	"encoding/hex"
+	"errors"
+
 	"github.com/btcsuite/btcd/btcutil"
 	"github.com/btcsuite/btcd/btcutil/bech32"
 	"github.com/sonr-io/coins/aptos"
@@ -20,9 +23,11 @@ import (
 	"github.com/sonr-io/coins/cosmos/tia"
 )
 
+var errUnimplemented = errors.New("unimplemented")
+
 // AptosAddressFromPublicKey returns the Aptos address from the public key
-func AptosAddressFromPublicKey(publicKey string) (string, error) {
-	return aptos.NewPubKeyAddress(publicKey, true)
+func AptosAddressFromPublicKey(publicKey []byte) (string, error) {
+	return aptos.NewPubKeyAddress(hex.EncodeToString(publicKey), true)
 }
 
 // AtomAddressFromPublicKey returns the Atom address from the public key
@@ -36,13 +41,13 @@ func AxelarAddressFromPublicKey(publicKey []byte) (string, error) {
 }
 
 // AvaxAddressFromPublicKey returns the Avax address from the public key
-func AvaxAddressFromPublicKey(publicKey string) (string, error) {
-	return "", nil
+func AvaxAddressFromPublicKey(publicKey []byte) (string, error) {
+	return "", errUnimplemented
 }
 
 // BitcoinAddressFromPublicKey returns the Bitcoin address from the public key
-func BitcoinAddressFromPublicKey(publicKey string) (string, error) {
-	return "", nil
+func BitcoinAddressFromPublicKey(publicKey []byte) (string, error) {
+	return "", errUnimplemented
 }
 
 // CosmosAddressFromPublicKey returns the Cosmos address from the public key
@@ -57,8 +62,8 @@ func CronosAddressFromPublicKey(publicKey []byte) (string, error) {
 }
 
 // EthereumAddressFromPublicKey returns the Ethereum address from the public key
-func EthereumAddressFromPublicKey(publicKey string) (string, error) {
-	return "", nil
+func EthereumAddressFromPublicKey(publicKey []byte) (string, error) {
+	return "", errUnimplemented
 }
 
 // EvmosAddressFromPublicKey returns the Evmos address from the public key
@@ -67,13 +72,13 @@ func EvmosAddressFromPublicKey(publicKey []byte) (string, error) {
 }
 
 // FilecoinAddressFromPublicKey returns the Filecoin address from the public key
-func FilecoinAddressFromPublicKey(publicKey string) (string, error) {
-	return "", nil
+func FilecoinAddressFromPublicKey(publicKey []byte) (string, error) {
+	return "", errUnimplemented
 }
 
 // HeliumAddressFromPublicKey returns the Helium address from the publicKey
-func HeliumAddressFromPublicKey(publicKey string) (string, error) {
-	return "", nil
+func HeliumAddressFromPublicKey(publicKey []byte) (string, error) {
+	return "", errUnimplemented
 }
 
 // IrisAddressFromPublicKey returns the Iris address from the public key
@@ -107,8 +112,8 @@ func OsmoAddressFromPublicKey(publicKey []byte) (string, error) {
 }
 
 // PolkadotAddressFromPublicKey returns the Polkadot address from the public key
-func PolkadotAddressFromPublicKey(publicKey string) (string, error) {
-	return "", nil
+func PolkadotAddressFromPublicKey(publicKey []byte) (string, error) {
+	return "", errUnimplemented
 }
 
 // SecretAddressFromPublicKey returns the Secret address from the public key
@@ -122,8 +127,8 @@ func SeiAddressFromPublicKey(publicKey []byte) (string, error) {
 }
 
 // SolanaAddressFromPublicKey returns the Solana address from the public key
-func SolanaAddressFromPublicKey(publicKey string) (string, error) {
-	return "", nil
+func SolanaAddressFromPublicKey(publicKey []byte) (string, error) {
+	return "", errUnimplemented
 }
 
 // SolanaAddressFromPublicKey returns the Solana address from the public key
@@ -137,13 +142,13 @@ func StargazeAddressFromPublicKey(publicKey []byte) (string, error) {
 }
 
 // SuiAddressFromPublicKey returns the Sui address from the public key
-func SuiAddressFromPublicKey(publicKey string) (string, error) {
-	return "", nil
+func SuiAddressFromPublicKey(publicKey []byte) (string, error) {
+	return "", errUnimplemented
 }
 
 // TezosAddressFromPublicKey returns the Tezos address from the public key
-func TezosAddressFromPublicKey(publicKey string) (string, error) {
-	return "", nil
+func TezosAddressFromPublicKey(publicKey []byte) (string, error) {
+	return "", errUnimplemented
 }
 
 // TiaAddressFromPublicKey returns the Tia address from the public key
