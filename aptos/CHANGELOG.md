@@ -1,3 +1,10 @@
+## aptos/v0.0.5 (2025-04-17)
+
+### Feat
+
+- standardize address derivation from public keys
+- add address generation for multiple Cosmos chains and Aptos
+
 ## aptos/v0.0.4 (2025-03-22)
 
 ### Feat
