@@ -8,7 +8,7 @@ require (
 	github.com/sonr-io/coins/bitcoin v0.0.5
 	github.com/sonr-io/coins/cosmos v0.0.5
 	github.com/sonr-io/coins/ethereum v0.0.5
-	github.com/sonr-io/coins/filecoin v0.0.0-00010101000000-000000000000
+	github.com/sonr-io/coins/filecoin v0.0.5
 	github.com/sonr-io/coins/solana v0.0.5
 )
 
