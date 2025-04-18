@@ -7,6 +7,7 @@ import (
 	"github.com/btcsuite/btcd/btcutil"
 	"github.com/btcsuite/btcd/btcutil/bech32"
 	"github.com/sonr-io/coins/aptos"
+	"github.com/sonr-io/coins/bitcoin"
 	"github.com/sonr-io/coins/cosmos/atom"
 	"github.com/sonr-io/coins/cosmos/axelar"
 	"github.com/sonr-io/coins/cosmos/cronos"
@@ -21,6 +22,9 @@ import (
 	"github.com/sonr-io/coins/cosmos/sei"
 	"github.com/sonr-io/coins/cosmos/stargaze"
 	"github.com/sonr-io/coins/cosmos/tia"
+	"github.com/sonr-io/coins/ethereum"
+	"github.com/sonr-io/coins/filecoin"
+	"github.com/sonr-io/coins/solana"
 )
 
 var errUnimplemented = errors.New("unimplemented")
@@ -47,7 +51,8 @@ func AvaxAddressFromPublicKey(publicKey []byte) (string, error) {
 
 // BitcoinAddressFromPublicKey returns the Bitcoin address from the public key
 func BitcoinAddressFromPublicKey(publicKey []byte) (string, error) {
-	return "", errUnimplemented
+	mainNetParams := bitcoin.GetBTCMainNetParams()
+	return bitcoin.PubKeyToAddr(publicKey, bitcoin.TAPROOT, mainNetParams)
 }
 
 // CosmosAddressFromPublicKey returns the Cosmos address from the public key
@@ -63,7 +68,7 @@ func CronosAddressFromPublicKey(publicKey []byte) (string, error) {
 
 // EthereumAddressFromPublicKey returns the Ethereum address from the public key
 func EthereumAddressFromPublicKey(publicKey []byte) (string, error) {
-	return "", errUnimplemented
+	return ethereum.GetAddress(hex.EncodeToString(publicKey)), nil
 }
 
 // EvmosAddressFromPublicKey returns the Evmos address from the public key
@@ -73,7 +78,7 @@ func EvmosAddressFromPublicKey(publicKey []byte) (string, error) {
 
 // FilecoinAddressFromPublicKey returns the Filecoin address from the public key
 func FilecoinAddressFromPublicKey(publicKey []byte) (string, error) {
-	return "", errUnimplemented
+	return filecoin.GetAddressByPublicKey(hex.EncodeToString(publicKey), filecoin.MainnetPrefix)
 }
 
 // HeliumAddressFromPublicKey returns the Helium address from the publicKey
@@ -128,7 +133,7 @@ func SeiAddressFromPublicKey(publicKey []byte) (string, error) {
 
 // SolanaAddressFromPublicKey returns the Solana address from the public key
 func SolanaAddressFromPublicKey(publicKey []byte) (string, error) {
-	return "", errUnimplemented
+	return solana.NewAddressByPublic(hex.EncodeToString(publicKey))
 }
 
 // SolanaAddressFromPublicKey returns the Solana address from the public key
