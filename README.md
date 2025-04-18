@@ -87,6 +87,8 @@ The output will display the build status for each chain. If a module fails, the 
 
 The Sonr Go Wallet SDK is based on the OKX Web3 Go Wallet SDK with enhanced features and optimizations. Each blockchain's specific usage can be found in the corresponding README within the `coins` directory. If you encounter any issues or have suggestions, please submit them through [GitLab Issues](https://github.com/sonr-io/coins/issues), and we will address them promptly.
 
+![Alt](https://repobeats.axiom.co/api/embed/3b6cd5548ab45f04aba43da0895f0883fb66e854.svg "Repobeats analytics image")
+
 ## 📜 License
 
 The Sonr Go Wallet SDK is open-source software licensed under the [MIT license](LICENSE).
